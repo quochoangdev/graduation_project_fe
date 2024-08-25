@@ -1,0 +1,117 @@
+.wrapper {
+  width                : 100%;
+  display              : flex;
+  flex-direction       : column;
+  align-items          : center;
+  padding              : 0 32px;
+  height               : 530px;
+  background-image     : url(https://ak-d.tripcdn.com/images/05E3s12000cmarxu50A1C.webp);
+  background-position-y: -180px;
+  background-size      : 100%;
+}
+
+.floor-1 {
+  height          : 71px;
+  width           : 100%;
+  display         : flex;
+  justify-content : space-between;
+  background-color: transparent;
+
+  .left {
+    height     : 100%;
+    display    : flex;
+    align-items: center;
+
+    .logo {
+      color      : #fff;
+      font-size  : 26px;
+      font-weight: 600;
+      padding    : 16px 32px 16px 0;
+    }
+  }
+
+  .right {
+    height     : 100%;
+    display    : flex;
+    align-items: center;
+
+    .margin {
+      margin: 0 4px;
+
+      .text {
+        color          : #fff;
+        font-size      : 14px;
+        padding        : 8px 12px;
+        font-weight    : 600;
+        text-decoration: none;
+        border-radius  : 3px;
+        cursor         : pointer;
+      }
+
+      .text:hover {
+        background-color: hsla(0, 0%, 100%, .3);
+      }
+
+      .btn-opa {
+        color           : #fff;
+        font-size       : 14px;
+        padding         : 8px;
+        font-weight     : 500;
+        text-decoration : none;
+        border-radius   : 6px;
+        border          : solid .8px transparent;
+        background-color: hsla(0, 0%, 100%, .3);
+        cursor          : pointer;
+      }
+
+      .btn-opa:hover {
+        color           : #1D47EF;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.floor-2 {
+  width           : 100%;
+  display         : flex;
+  justify-content : space-between;
+  background-color: transparent;
+
+  .left {
+    display: flex;
+  }
+}
+
+@media (min-width: 0) and (max-width: 739px) {
+  .wrapper {
+    padding: 0 12px;
+  }
+
+  .floor-1 {
+    height: 48px;
+
+    .left {
+      .logo {
+        font-size    : 16px;
+        padding-right: 12px;
+      }
+    }
+
+    .right {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .logo {
+    background-color: red;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1039px) {
+  .logo {
+    background-color: pink;
+  }
+}

@@ -1,0 +1,39 @@
+.cart-view {
+  position  : relative;
+  margin-top: 16px !important;
+}
+
+.cart-view::after {
+  content            : "";
+  position           : absolute;
+  bottom             : calc(100% + 1px);
+  right              : 20px;
+  width              : 0;
+  height             : 0;
+  border-left        : 10px solid transparent;
+  border-right       : 10px solid transparent;
+  border-bottom      : 10px solid #fff;
+  border-bottom-color: #dfdfdf;
+}
+
+.custom-image {
+  border-radius: 50%;
+  width        : 40px;
+  height       : 40px;
+}
+
+.custom-navbar {
+  border-bottom: solid 1px #cbd0dd;
+}
+
+.custom-logo {
+  margin-right: 10px;
+  width : 27px;
+  height: 27px;
+}
+
+.custom-logo-text{
+  font-size: 26px;
+  font-weight: 600;
+  color: rgb(122, 122, 122);
+}

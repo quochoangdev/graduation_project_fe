@@ -1,0 +1,21 @@
+.custom-vertical {
+  border-right: solid 1px #cbd0dd;
+  padding     : 16px 6px 16px 0;
+}
+
+.custom-toggle {
+  cursor: pointer;
+}
+
+.custom-text {
+  color        : #525b75;
+  font-weight  : 500;
+  font-size    : 13px;
+  height       : 34px;
+  border-radius: 8px;
+  width        : 224px;
+}
+
+.custom-text:hover {
+  background-color: #eff2f6;
+}
