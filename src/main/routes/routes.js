@@ -1,6 +1,5 @@
-import { adminRoutes } from '../../admin/routes/routes'
 import { frontendRoutes } from '../../frontend/routes/routes'
 
-const arrayRoutes = adminRoutes.concat(frontendRoutes)
+const arrayRoutes = frontendRoutes
 
 export { arrayRoutes }

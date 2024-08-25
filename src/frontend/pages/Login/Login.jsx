@@ -5,7 +5,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
 import { FaTwitter } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import config from '../../config'
+import config from '../../../frontend/config'
 
 const cx = classNames.bind(styles)
 

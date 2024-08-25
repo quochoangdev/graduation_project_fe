@@ -2,7 +2,7 @@ import './Register.css'
 import classNames from 'classnames/bind'
 import styles from './Register.module.scss'
 import { Link } from 'react-router-dom'
-import config from '../../config'
+import config from '../../../frontend/config'
 
 const cx = classNames.bind(styles)
 
