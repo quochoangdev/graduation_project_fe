@@ -1,5 +1,36 @@
-.size-14{
-  font-size: 14px;
+.wrapper {
+  width           : 100%;
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  background-color: rgb(238, 77, 45);
+  background-color: var(--primary);
+  padding         : 60px 0;
+}
+
+.cs-form-block {
+  width           : 400px;
+  background-color: rgb(255, 255, 255);
+  color           : rgb(38, 38, 38);
+  box-shadow      : rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  transition      : box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow        : hidden;
+  border-width    : initial;
+  border-style    : none;
+  border-image    : initial;
+  border-radius   : 4px;
+  border-color    : rgb(230, 235, 241);
+}
+
+.cs-logo-large {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  width          : 640px;
+}
+
+.cs-img-large {
+  height: 100%;
 }
 
 hr {
@@ -8,13 +39,17 @@ hr {
   margin    : 0;
 }
 
-.text-line {
-  color: #000;
+.cs-text-line {
+  color    : #000;
   font-size: 12px;
 }
 
-.custom-hover:hover {
+.cs-hover:hover {
   background-color: transparent !important;
   color           : inherit !important;
   border-color    : #000 !important;
+}
+
+.cs-redirect-link {
+  color: var(--primary);
 }

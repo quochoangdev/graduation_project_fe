@@ -1,0 +1,15 @@
+.cs-wrapper {
+  height     : 84px;
+  display    : flex;
+  align-items: center;
+}
+
+.cs-logo {
+  height: 54px;
+}
+
+.cs-help {
+  font-size: 14px;
+  color : var(--primary);
+  margin-right: 20%;
+}
