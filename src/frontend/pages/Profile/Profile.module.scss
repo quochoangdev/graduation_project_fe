@@ -1,0 +1,24 @@
+.wrapper {
+    width: 1200px;
+    margin: auto;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    background-color   : rgb(250, 250, 251);
+}
+
+.left{
+
+    .navbar{}
+    .avatar{
+        height: 50px;
+        width: 50px;
+        
+    }
+}
+.right{
+    background-color: #ccc;
+    border-radius: .125rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .13);
+    box-sizing: border-box;
+}
