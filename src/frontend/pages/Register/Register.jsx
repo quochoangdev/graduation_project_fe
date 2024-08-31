@@ -1,7 +1,7 @@
 import './Register.css'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
-import { FaTwitter } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import config from '../../../frontend/config'
 import logoLarge from '../../assets/img/logo_large.png'
@@ -20,7 +20,7 @@ const Register = () => {
         </div>
         <div className="mb-2 pt-3">
           <label htmlFor="email" className="form-label mb-1 fw-light gl-font-size-14">Số điện thoại</label>
-          <input type="email" className="form-control" id="email" aria-describedby="emailHelp" name='email' required />
+          <input type="text" className="form-control" id="email" aria-describedby="emailHelp" name='email' required />
         </div>
         <button type="submit" className="btn btn-primary w-100 mt-3">Tiếp Theo</button>
         <div className="d-flex align-items-center pt-3">
@@ -39,7 +39,7 @@ const Register = () => {
             <FaFacebookF className='text-primary' /><span className='mx-1'>{''}</span><span className='gl-font-size-14'>Facebook</span>
           </button>
           <button type="button" className="d-flex align-items-center btn btn-outline-secondary cs-hover">
-            <FaTwitter className='text-info'/><span className='mx-1'>{''}</span><span className='gl-font-size-14'>Twitter</span>
+            <FaGithub className='text-dark'/><span className='mx-1'>{''}</span><span className='gl-font-size-14'>Github</span>
           </button>
         </div>
       </form>
