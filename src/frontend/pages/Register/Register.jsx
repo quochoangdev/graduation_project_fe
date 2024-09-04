@@ -15,17 +15,17 @@ const Register = () => {
       </div>
       <form className='cs-form-block p-4'>
         <div className='d-flex justify-content-between'>
-          <h4 className='fw-normal'>Đăng Ký</h4>
+          <h4 className='fw-normal'>Sign up</h4>
           <p><Link className="cs-redirect-link link-offset-2 link-underline link-underline-opacity-0 gl-font-size-14" to={`${config.routes.login}`}>Already have an account?</Link></p>
         </div>
         <div className="mb-2 pt-3">
-          <label htmlFor="email" className="form-label mb-1 fw-light gl-font-size-14">Số điện thoại</label>
+          <label htmlFor="email" className="form-label mb-1 fw-light gl-font-size-14">Phone number</label>
           <input type="text" className="form-control" id="email" aria-describedby="emailHelp" name='email' required />
         </div>
-        <button type="submit" className="btn btn-primary w-100 mt-3">Tiếp Theo</button>
+        <button type="submit" className="btn btn-primary w-100 mt-3">Next</button>
         <div className="d-flex align-items-center pt-3">
           <hr className="flex-grow-1" />
-          <span className="mx-2 cs-text-line">Hoặc</span>
+          <span className="mx-2 cs-text-line">Or</span>
           <hr className="flex-grow-1" />
         </div>
         <div className=''>

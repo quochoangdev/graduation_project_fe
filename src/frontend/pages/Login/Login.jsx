@@ -15,7 +15,7 @@ const Login = () => {
       </div>
       <form className='cs-form-block p-4'>
         <div className='d-flex justify-content-between'>
-          <h4 className='fw-normal'>Đăng Nhập</h4>
+          <h4 className='fw-normal'>Login</h4>
           <p><Link className="cs-redirect-link link-offset-2 link-underline link-underline-opacity-0 gl-font-size-14" to={`${config.routes.register}`}>Don&apos;t have an account?</Link></p>
         </div>
         <div className="mb-2 pt-3">
@@ -33,7 +33,7 @@ const Login = () => {
           <hr className="flex-grow-1" />
         </div>
         <div className=''>
-          <p className='gl-font-size-12 mt-2 mb-0'><Link className='gl-color-primary link-underline link-underline-opacity-0'>Quên mật khẩu</Link></p>
+          <p className='gl-font-size-12 mt-2 mb-0'><Link className='gl-color-primary link-underline link-underline-opacity-0'>Forgot password</Link></p>
         </div>
         <div className='d-flex justify-content-between py-3'>
           <button type="button" className="d-flex align-items-center btn btn-outline-secondary cs-hover">
