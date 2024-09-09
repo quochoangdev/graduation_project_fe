@@ -39,12 +39,12 @@ hr {
   margin    : 0;
 }
 
-.text-line {
+.cs-text-line {
   color: #000;
   font-size: 12px;
 }
 
-.custom-hover:hover {
+.cs-hover:hover {
   background-color: transparent !important;
   color           : inherit !important;
   border-color    : #000 !important;
