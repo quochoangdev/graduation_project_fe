@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Home from '../pages/Home'
 import ProductDetail from '../pages/ProductDetail/ProductDetail'
+import AllCategories from '../pages/AllCategories'
 
 const frontendRoutes = [
   {
@@ -22,11 +23,16 @@ const frontendRoutes = [
     component: Home,
     layout: DefaultLayout
   },
-  {
+    {
     path: config.routes.productDetail,
     component: ProductDetail,
     layout: DefaultLayout
-  }
+  },
+    {
+    path: config.routes.allCategories,
+    component: AllCategories,
+    layout: DefaultLayout
+  },
 ]
 
 export { frontendRoutes }
