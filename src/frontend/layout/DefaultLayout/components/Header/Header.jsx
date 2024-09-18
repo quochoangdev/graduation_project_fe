@@ -7,12 +7,31 @@ const Header = () => {
   return (
     <header className='gl-bg-primary w-100'>
       <div className='container gl-bg-transparent'>
-        <div className='row'>
-          <div className='col-4'>1</div>
-          <div className='col-4'>2</div>
-          <div className='col-4'>3</div>
+        <div className='row mt-2'>
+          <div className='col-6'>
+            <div className='d-flex align-items-center'>
+              <a className='link-social-left' href='#'>Categories Item</a>
+              <span className='wall-center-link'></span>
+              <a className='link-social-left' href='#'>Categories Item</a>
+              <span className='wall-center-link'></span>
+              <a className='link-social-left' href='#'>Categories Item</a>
+              <span className='wall-center-link'></span>
+              <a className='link-social-left' href='#'>Categories Item</a>
+              <span className='wall-center-link'></span>
+              <a className='link-social-left' href='#'>Categories Item</a>
+            </div>
+          </div>
+          <div className='col-6'>
+            <div className='d-flex align-items-center justify-content-end'>
+              <a className='link-social-right' href='#'>Thong bao</a>
+              <a className='link-social-right' href='#'>Categories Item</a>
+              <a className='link-social-right' href='#'>Categories Item</a>
+              <a className='link-social-right' href='#'>Categories Item</a>
+              <a className='link-social-right' href='#'>Categories Item</a>
+            </div>
+          </div>
         </div>
-        <div className='row'>
+        <div className='row mt-3'>
           <div className='col-2'>
             <LogoSmall/>
           </div>
