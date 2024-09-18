@@ -1,0 +1,477 @@
+
+.container {
+    padding-bottom: 60px;
+}
+.cs-path-product {
+    margin-top: 20px;
+    height: 1rem;
+    white-space: nowrap;
+}
+.cs-path-item {
+    text-decoration: none;
+}
+.cs-path-icon {
+    height: 10px;
+    width: 10px;
+}
+
+.cs-product-briefing {
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    background-color: #fff;
+}
+
+.cs-product-image {
+    padding: 15px;
+}
+.cs-list-image-block {
+    display: flex;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.cs-list-img-block-item {
+    width: 20%;
+}
+.cs-image-item {
+    cursor: pointer;
+    height: 83px;
+    padding: 5px;
+}
+
+.cs-list-image-button {
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    font-size: .875rem;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1;
+    outline: none;
+    transition: background-color .1s cubic-bezier(.4,0,.6,1);
+    
+    background-color: rgba(0, 0, 0, .2) !important;
+    color: #fff;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+}
+
+.cs-share-product{
+    border-right: 1px solid rgba(0, 0, 0, .09);
+    padding: 0 30px;
+}
+.cs-share-title{
+    display: flex;
+    align-items: center;
+    color: #222;
+    font-size: 16px;
+}
+.cs-share-item{
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.cs-product-information-section {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 35px;
+}
+.cs-name-product {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+    max-height: 48px;
+    max-width: 665px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+.cs-score-rating {
+    border-bottom: 1px solid #555;
+    border-bottom-color: var(--primary);
+    color: var(--primary);
+}
+.cs-star{
+    display: flex;
+    align-items: center;
+}
+.cs-rating-cmt {
+    border-left: 1px solid rgba(0, 0, 0, .14);
+}
+.cs-cmt-quantity {
+    margin-right: 5px;
+    font-size: 1rem;
+    border-bottom: 1px solid #555;
+    padding-bottom: 1px;
+}
+.cs-report {
+    font-size: 14px;
+    margin-left: auto;
+    color: rgba(0, 0, 0, .54);
+    cursor: pointer;
+}
+.cs-price-product {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    padding: 15px 20px;
+}
+.cs-price-default {
+    color: #929292;
+    font-size: 1rem;
+    margin-right: 10px;
+    -webkit-text-decoration: line-through;
+    text-decoration: line-through;
+}
+.cs-price{
+    color: var(--primary);
+    font-size: 1.875rem;
+    font-weight: 400;
+}
+
+.cs-discount {
+    height: 16px;
+    background: var(--primary);
+    border-radius: 2px;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-left: 15px;
+    padding: 2px 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cs-options {
+    padding: 0 20px;
+}
+.cs-option-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 4px;
+}
+.cs-option-title {
+    color: #757575;
+    flex-shrink: 0;
+    font-size: inherit;
+    font-weight: 400;
+    margin: 0;
+    text-transform: capitalize;
+    width: 110px;
+}
+
+.cs-option-value {
+    display: flex;
+    align-items: center;
+    flex-basis: 515px;
+    flex-wrap: wrap;
+    margin-top: -8px;
+    max-height: 220px;
+    max-width: 515px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+}
+.cs-option-value-item-btn {
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .09);
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, .8);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    margin: 8px 8px 0 0;
+    min-height: 2.5rem;
+    min-width: 5rem;
+    outline: 0;
+    overflow: visible;
+    padding: .5rem;
+    position: relative;
+    text-align: left;
+    word-break: break-word;
+}
+
+.cs-btn-quantity {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border: 1px solid rgba(0, 0, 0, .09);
+    border-radius: 2px;
+    color: rgba(0, 0, 0, .8);
+    cursor: pointer;
+    font-size: .875rem;
+    font-weight: 300;
+    height: 32px;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 1;
+    outline: none;
+    transition: background-color .1s cubic-bezier(.4,0,.6,1);
+    width: 32px;
+}
+.cs-quantity-input {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    box-sizing: border-box;
+    cursor: text;
+    font-size: 16px;
+    font-weight: 400;
+    height: 32px;
+    text-align: center;
+    width: 50px;
+    border: 1px solid rgba(0, 0, 0, .09);
+    letter-spacing: 0;
+    line-height: 1;
+    outline: none;
+    transition: background-color .1s cubic-bezier(.4,0,.6,1);
+}
+.cs-quantity-input:focus-visible {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
+}
+/*
+.cs-btn-buy {
+    padding: 0 20px;
+    height: 48px;
+    max-width: 250px;
+    background: var(--primary);
+    color: #fff;
+    outline: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .09);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+*/
+
+.cs-product-shop {
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    background-color: #fff;
+
+}
+
+.cs-shop-avatar {
+    height: 80px;
+    width: 80px;
+
+}
+.cs-shop-avatar img {
+    border-radius: 50%;
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.cs-info-shop {
+    overflow: hidden;
+    border-right: 1px solid rgba(0, 0, 0, .05);
+    box-sizing: border-box;
+    max-width: 440px;
+    padding-right: 25px;
+
+}
+.cs-status-shop {
+    align-items: center;
+    color: #757575;
+    display: flex;
+    font-size: 14px;
+}
+.cs-btn-to-shop{
+    background-color: #e3ffea;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 190px;
+    min-width: 60px;
+    height: 34px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, .09);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+    color: #555;
+    outline: 0;
+    overflow: visible;
+    color: #555;
+    text-decoration: none;
+
+}
+.cs-btn-to-shop:hover {
+    background: rgba(0, 0, 0, .02);
+}
+.cs-info-shop-orther {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 20px 50px;
+    color: rgba(0, 0, 0, .4);
+    gap: 20px 50px;
+}
+.cs-product-content {
+    min-height: 40rem;
+}
+.cs-product-detail {
+    background-color: #fff;
+    margin-top: 15px;
+    padding: 10px;
+
+}
+.cs-product-detail-title {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, .4);
+    font-size: .875rem;
+    padding-right: .75rem;
+    width: 8.75rem;
+    word-break: break-word;
+}
+.cs-product-rating {
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    background-color: #fff;
+}
+
+.cs-product-rating-overview {
+    background-color: #e3ffea;
+    border: 1px solid #c1f2cd;
+    border-radius: 2px;
+}
+
+.cs-product-rating-score  .rating-score {
+    color: var(--primary);
+    font-size: 1.125rem;
+}
+.cs-product-rating-filter .cs-product-rating-filter_item {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .09);
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, .8);
+    cursor: pointer;
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    margin-bottom: .3125rem;
+    margin-right: .5rem;
+    margin-top: .3125rem;
+    min-width: 6.25rem;
+    padding: 0 .625rem;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+}
+
+.cs-recommendation-header {
+    padding-top: 1.25rem;
+    line-height: 1;
+    align-items: center;
+    display: flex;
+    padding-bottom: .625rem;
+
+}
+.cs-recommendation-header span {
+    color: rgba(0, 0, 0, .54);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+
+
+/* modal */
+.cs-modal-left {
+    height: 100%;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    padding: 12px 0 12px 12px;
+    position: relative;
+    width: 100%;
+}
+.cs-modal-left-img {
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+}
+.cs-modal-img {
+    height: 100%;
+    left: 0;
+    object-fit: contain;
+    object-position: center;
+    position: absolute;
+    right: 0;
+    width: 100%;
+}
+.cs-modal-list-image-button {
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1;
+    outline: none;
+    transition: background-color .1s cubic-bezier(.4,0,.6,1);
+    
+    background-color: rgba(0, 0, 0, .2) !important;
+    color: #fff;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    z-index: 2;
+}
+
+.cs-modal-right {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 0 1.875rem 12px;
+    width: 19.25rem;
+}
+.cs-modal-name-product {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000;
+    font-size: 1.0625rem;
+    word-wrap: break-word;
+    height: 2.25rem;
+    line-height: 1.125rem;
+    padding-right: 12px;
+}
+.cs-modal-list-img {
+    align-content: flex-start;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1.25rem;
+    overflow: auto;
+}
+.cs-modal-img-block {
+    position: relative;
+    height: 5rem;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    width: 5rem;
+    cursor: pointer;
+}
+.cs-modal-img-item {
+    position: absolute;
+    width: 100%;
+}
