@@ -100,3 +100,7 @@
     color: rgba(0, 0, 0, .54);
     text-decoration: none;
 }
+
+.MuiRating-root.MuiRating-sizeSmall{
+    font-size: 0.875rem;
+}

@@ -8,8 +8,14 @@ import voucher from '../../assets/img/voucher.png'
 import clo1 from '../../assets/img/item.jpg'
 import clo from '../../assets/img/quan-ao.jpg'
 import { FaList } from 'react-icons/fa6'
+import { CiFilter } from 'react-icons/ci'
 import Rating from '@mui/material/Rating'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
 import React, { useEffect, useState } from 'react'
+import { ClassNames } from '@emotion/react'
+import classNames from 'classnames'
+
 
 const listCarousel = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const listItem = [1, 2, 3, 4, 5]
@@ -28,6 +34,15 @@ const DetailCategories = () => {
 
   const firstSlideItems = listCarousel.slice(0, 6)
   const secondSlideItems = listCarousel.slice(6, 12)
+
+  const [selectedCategory, setSelectedCategory] = useState(null)
+
+  const categories = ['Balo & Túi Ví Nam', 'Giày dép Nam', 'Phụ kiện Nam']
+
+  const handleCategoryClick = (e, category) => {
+    e.preventDefault()
+    setSelectedCategory(category)
+  }
   return (
     <>
       <div className='container p-0 mt-4'>
@@ -152,13 +167,51 @@ const DetailCategories = () => {
       <div className='container mt-4'>
         <div className='row'>
           <div className='cs-panel col-lg-2'>
-            <div className='categories-list'>
-              <a href='#' className='categories-list-header d-flex align-items-center'><FaList className='me-2'/>Tất cả Danh Mục</a>
-              <div className='categories-list-body'>
-                <div className='categories-list-categories'>
-                  {listItem.map((item, index) => {
-                    return (<div key={index} className='row m-2'><a className='categories-list-sub-categories' href="#">Balo & Túi Ví Nam</a></div>)
-                  })}
+            <div className='row'>
+              <div className='categories-list'>
+                <a href='#' className='categories-list-header d-flex align-items-center'><FaList className='me-2'/>Tất cả Danh Mục</a>
+                <div className='categories-list-body'>
+                  <div className='categories-list-categories'>
+                    {categories.map((category, index) => (
+                      <div className='row m-2' key={index}>
+                        <a
+                          className={`categories-list-sub-categories ${
+                            selectedCategory === category ? 'active' : ''
+                          }`}
+                          href='#'
+                          onClick={(e) => handleCategoryClick(e, category)}
+                        >
+                          {category}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='row mt-5'>
+              <div className='categories-list'>
+                <a href='#' className='categories-list-header-filter d-flex align-items-center'><CiFilter className='me-2'/>BỘ LỌC TÌM KIẾM</a>
+                <div className='categories-list-body'>
+                  <div className='cs-filter-header'>Theo Danh Mục</div>
+                  <div className='categories-list-categories mt-2 border-bottom pb-4 d-flex flex-column'>
+                    <FormControlLabel control={<Checkbox defaultChecked color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}/>} label="Áo thun (838k+)" />
+                    <FormControlLabel control={<Checkbox defaultChecked color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}/>} label="Áo sơ mi (176k+)" />
+                    <FormControlLabel control={<Checkbox defaultChecked color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}/>} label="Áo khoác (147k+)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='row mt-2'>
+              <div className='categories-list'>
+                {/* <a href='#' className='categories-list-header-filter d-flex align-items-center'><CiFilter className='me-2'/>BỘ LỌC TÌM KIẾM</a> */}
+                <div className='categories-list-body'>
+                  <div className='cs-filter-header'>Nơi bán</div>
+                  <div className='categories-list-categories mt-2 border-bottom pb-4 d-flex flex-column'>
+                    <FormControlLabel control={<Checkbox defaultChecked color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}/>} label="TP. Hồ CHí Minh" />
+                    <FormControlLabel control={<Checkbox defaultChecked color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}/>} label="Đà Nẵng" />
+                    <FormControlLabel control={<Checkbox defaultChecked color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }}/>} label="Hưng Yên " />
+                  </div>
                 </div>
               </div>
             </div>

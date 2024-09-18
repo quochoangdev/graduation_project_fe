@@ -95,13 +95,20 @@
     background-color: #F5F5F5;
 }
 
-.categories-list-header{
+.categories-list-header,
+.categories-list-header-filter{
     text-decoration: none;
     color: black;
     border-bottom: 1px solid rgba(0, 0, 0, .05);
     height: 50px;
     margin-bottom: 10px;
 }
+
+
+.categories-list-header-filter{
+    border-bottom: none;
+}
+
 
 .categories-list-sub-categories{
     text-decoration: none;
@@ -286,3 +293,33 @@
     flex: 0 1 auto;
     text-align: left;
 }
+
+.categories-list-sub-categories{
+    position: relative;
+    padding-left: 20px;
+}
+
+.categories-list-sub-categories:before {
+    content: '\203A'; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .categories-list-sub-categories.active {
+    color: var(--primary); 
+    font-weight: bold; 
+  }
+
+  .categories-list-sub-categories.active:before {
+    opacity: 1;
+  }
+
+ .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-size: 14px;
+}
+
+
