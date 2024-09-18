@@ -1,6 +1,4 @@
-.wrapper {
-    
-}
+
 .container {
     padding-bottom: 60px;
 }
@@ -25,10 +23,6 @@
 
 .cs-product-image {
     padding: 15px;
-}
-.cs-list-image {
-    
-    
 }
 .cs-list-image-block {
     display: flex;
@@ -95,9 +89,6 @@
     max-width: 665px;
     overflow: hidden;
     overflow-wrap: break-word;
-}
-.cs-rating-shop {
-
 }
 .cs-score-rating {
     border-bottom: 1px solid #555;
@@ -380,9 +371,6 @@
     text-align: center;
     text-decoration: none;
     user-select: none;
-}
-.cs-recommendation {
-
 }
 
 .cs-recommendation-header {

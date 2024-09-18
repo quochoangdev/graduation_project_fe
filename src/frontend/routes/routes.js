@@ -23,7 +23,7 @@ const frontendRoutes = [
     layout: DefaultLayout
   },
   {
-    path: config.routes.productdetail,
+    path: config.routes.productDetail,
     component: ProductDetail,
     layout: DefaultLayout
   }

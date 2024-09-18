@@ -1,45 +1,34 @@
 import './ProductDetail.css'
-import classNames from 'classnames/bind'
-import styles from './ProductDetail.module.scss'
 import { Link } from 'react-router-dom'
 import config from '../../config'
 import { useEffect, useRef, useState } from 'react'
-import { FaFacebook, FaRegStar, FaStar,FaRegHeart, FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
+import { FaFacebook, FaRegStar, FaStar, FaRegHeart, FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import { RiAddLine, RiSubtractLine } from 'react-icons/ri'
 import { CiShop } from 'react-icons/ci'
 
-const cx = classNames.bind(styles)
 let imgStart = 0, imgEnd = imgStart + 5
 let indexImgModule = 0
 
 const Product = () => {
   const describeScroll = useRef()
-  
-  const imgDetail = [
-    'https://down-vn.img.susercontent.com/file/109e9c8a5846c0cb011a31afbec653bd',
-    'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d',
-    'https://down-vn.img.susercontent.com/file/695e4fa09c4981e2fa972543625c91ab',
-    'https://down-vn.img.susercontent.com/file/sg-11134201-22120-s1rvb1lxoskvf1',
-    'https://down-vn.img.susercontent.com/file/sg-11134201-22120-sug62o1bzjkvc5',
-    'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwiaifs9i7yz8e',
-    'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpaa5p7k4eoe8b',
-  ]
+  const imgDetail = []
   const [imageDefault, setImageDefault] = useState(imgDetail[0] || '')
   const [imageList, setImageList] = useState([])
   const [quantityProduct, setQuantityProduct] = useState(1)
   const [imageModule, setImageModule] = useState(imgDetail[0] || '')
-  
-  //
+
   useEffect(() => {
     setImageList(imgDetail.slice(0, 5))
-  }, [])
-  const handleClickListImageLeft = () => {
+  }, [imgDetail])
+
+  function handleClickListImageLeft() {
     if (imgStart > 0) {
       imgStart--
       imgEnd = imgStart + 5
       setImageList(imgDetail.slice(imgStart, imgEnd))
     } else return
   }
+
   const handleClickListImageRight = () => {
     if (imgEnd < imgDetail.length) {
       imgStart++
@@ -48,6 +37,7 @@ const Product = () => {
     }
     else return
   }
+
   const handleAddQuantity = () => {
     setQuantityProduct(quantityProduct + 1)
   }
@@ -55,6 +45,7 @@ const Product = () => {
     if (quantityProduct > 1 ) {setQuantityProduct(quantityProduct - 1)}
     return
   }
+
   const handleClickListImageModalBack = () => {
     if (indexImgModule == 0) {
       indexImgModule = imgDetail.length - 1
@@ -64,6 +55,7 @@ const Product = () => {
       setImageModule(imgDetail[indexImgModule])
     }
   }
+
   const handleClickListImageModalFront = () => {
     if (indexImgModule == imgDetail.length - 1) {
       indexImgModule = 0
@@ -73,11 +65,13 @@ const Product = () => {
       setImageModule(imgDetail[indexImgModule])
     }
   }
+
   const handleClickImageModule = (index) => {
     setImageModule(imgDetail[index])
   }
+
   const handleClickShowImgModule = (data) => {
-    const foundImage = imgDetail.find((element) => element == `${data}`);
+    const foundImage = imgDetail.find((element) => element == `${data}`)
     setImageModule(foundImage)
   }
 
@@ -108,18 +102,18 @@ const Product = () => {
                       </div>)
                   })}
                 </div>
-                <div className='cs-list-image-button start-0 top-50'><FaChevronLeft style={{height: '25'}} onClick={handleClickListImageLeft} /></div>
-                <div className='cs-list-image-button top-50 end-0'><FaChevronRight style={{height: '25'}} onClick={handleClickListImageRight} /></div>
+                <div className='cs-list-image-button start-0 top-50'><FaChevronLeft style={{ height: '25' }} onClick={handleClickListImageLeft} /></div>
+                <div className='cs-list-image-button top-50 end-0'><FaChevronRight style={{ height: '25' }} onClick={handleClickListImageRight} /></div>
               </div>
               <div className='d-flex align-items-center mt-3'>
                 <div className='cs-share-product d-flex'>
                   <span className='cs-share-title'>Chia sẻ:</span>
                   <div className='cs-share-item'>
-                    <FaFacebook style={{ width: '25px', height: '25px', color: 'blue'}} />
+                    <FaFacebook style={{ width: '25px', height: '25px', color: 'blue' }} />
                   </div>
                 </div>
                 <div className='d-flex align-items-center justify-content-center flex-grow-1'>
-                  <FaRegHeart style={{ width: '25px', height: '25px', color: '#ff424f', marginRight: '10px'}} />
+                  <FaRegHeart style={{ width: '25px', height: '25px', color: '#ff424f', marginRight: '10px' }} />
                   <span className='gl-font-size-16'>Đã thích</span>
                 </div>
               </div>
@@ -134,24 +128,24 @@ const Product = () => {
                 <div className='d-flex align-items-center pe-3'>
                   <span className='cs-score-rating me-1'>0.0</span>
                   <div className='py-1 me-1 d-flex'>
-                    <div style={{ marginRight: '1px'}} className='cs-star'>
-                      <FaRegStar style={{width:'16', height:'16', color:'var(--primary)'}}/>
+                    <div style={{ marginRight: '1px' }} className='cs-star'>
+                      <FaRegStar style={{ width:'16', height:'16', color:'var(--primary)' }}/>
                     </div>
-                    <div style={{ marginRight: '1px'}} className='cs-star'>
-                      <FaStar style={{width:'16', height:'16', color:'var(--primary)'}}/>
+                    <div style={{ marginRight: '1px' }} className='cs-star'>
+                      <FaStar style={{ width:'16', height:'16', color:'var(--primary)' }}/>
                     </div>
                   </div>
                 </div>
                 <div className='cs-rating-cmt px-3'>
                   <span className='cs-cmt-quantity'>3.6k</span>
-                  <span className='py-1' style={{color: '#767676'}}>Đánh giá</span>
+                  <span className='py-1' style={{ color: '#767676' }}>Đánh giá</span>
                 </div>
                 <div className='cs-report'>Tố cáo</div>
               </div>
               <div className='cs-price-product mt-2'>
-                <div className='cs-price-default'><span style={{fontSize: '10px'}}>₫</span>199.000</div>
+                <div className='cs-price-default'><span style={{ fontSize: '10px' }}>₫</span>199.000</div>
                 <div className='d-flex align-items-center'>
-                  <div className='cs-price'><span style={{fontSize: '20px'}}>₫</span>129.000</div>
+                  <div className='cs-price'><span style={{ fontSize: '20px' }}>₫</span>129.000</div>
                   <div className='cs-discount'>47% giảm</div>
                 </div>
               </div>
@@ -183,7 +177,7 @@ const Product = () => {
                           <RiAddLine />
                         </button>
                       </div>
-                      <span style={{color: '#757575'}}>... sản phẩm có sẵn</span>
+                      <span style={{ color: '#757575' }}>... sản phẩm có sẵn</span>
                     </div>
                   </div>
                 </div>
@@ -205,7 +199,7 @@ const Product = () => {
                 <div className='cs-status-shop'>Online 11 phút trước</div>
                 <div className='cs-shop mt-1'>
                   <Link type="button" className='cs-btn-to-shop px-2'>
-                    <CiShop style={{height: '18', width: '18', marginRight: '5'}} />
+                    <CiShop style={{ height: '18', width: '18', marginRight: '5' }} />
                     Xem shop
                   </Link>
                 </div>
@@ -213,27 +207,27 @@ const Product = () => {
               <div className='cs-info-shop-orther ps-4 flex-grow-1'>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Đánh giá</label>
-                  <span className="me-2" style={{color: 'var(--primary)'}}>64,4k</span>
+                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Tỉ lệ phản hồi</label>
-                  <span className="me-2" style={{color: 'var(--primary)'}}>64,4k</span>
+                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Tham gia</label>
-                  <span className="me-2" style={{color: 'var(--primary)'}}>64,4k</span>
+                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Sản phẩm</label>
-                  <span className="me-2" style={{color: 'var(--primary)'}}>64,4k</span>
+                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Thời gian phản hồi</label>
-                  <span className="me-2" style={{color: 'var(--primary)'}}>64,4k</span>
+                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Người theo dõi</label>
-                  <span className="me-2" style={{color: 'var(--primary)'}}>64,4k</span>
+                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
                 </div>
               </div>
             </div>
@@ -268,8 +262,8 @@ const Product = () => {
                 </div>
                 <div className='cs-rating-star mt-2'>
                   <div className='d-flex'>
-                    <FaRegStar style={{width:'19', height:'19', color:'var(--primary)'}}/>
-                    <FaStar style={{width:'19', height:'19', color:'var(--primary)'}}/>
+                    <FaRegStar style={{ width:'19', height:'19', color:'var(--primary)' }}/>
+                    <FaStar style={{ width:'19', height:'19', color:'var(--primary)' }}/>
                   </div>
                 </div>
               </div>
