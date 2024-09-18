@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.0",
+    "@mui/styled-engine-sc": "^6.1.0",
     "@tippyjs/react": "^4.2.6",
     "bootstrap": "^5.3.3",
     "classnames": "^2.5.1",
@@ -20,6 +24,7 @@
     "react-router-dom": "^6.26.0",
     "sass": "^1.77.8",
     "scss": "^0.2.4",
+    "styled-components": "^6.1.13",
     "yarn": "^1.22.22"
   },
   "devDependencies": {

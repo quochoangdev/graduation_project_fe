@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Home from '../pages/Home'
 import AllCategories from '../pages/AllCategories'
+import DetailCategories from '../pages/DetailCategories/DetailCategories'
 
 const frontendRoutes = [
   {
@@ -25,6 +26,11 @@ const frontendRoutes = [
   {
     path: config.routes.allCategories,
     component: AllCategories,
+    layout: DefaultLayout
+  },
+  {
+    path: config.routes.detailCategories,
+    component: DetailCategories,
     layout: DefaultLayout
   }
 ]

@@ -1,0 +1,288 @@
+.cs-carousel-header-left,
+.cs-carousel-header-right{
+    color: var(--primary);
+    text-decoration: none;
+}
+
+
+.cs-carousel-header{
+    height: 70px;
+    padding: 0px 5px 10px;
+}
+
+.cs-carousel-content-item{
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    border-left: 1px solid rgba(0, 0, 0, .05);
+}
+
+.cs-carousel-content-item:hover{
+    background-color: #f5efef;
+}
+
+.cs-carousel-control-next{
+    right: -98px !important;
+}
+
+.cs-carousel-control-prev{
+    left: -98px !important;
+}
+
+.cs-carousel-control-next-icon,
+.cs-carousel-control-prev-icon{
+    background-color: rgb(221, 207, 207); 
+    border-radius: 100%;  
+
+    background-size: 24px 24px !important;
+    transform: scale(0.9);
+}
+
+.cs-carousel-control-next:hover .cs-carousel-control-next-icon,
+.cs-carousel-control-prev:hover .cs-carousel-control-prev-icon{
+    transform: scale(1.3); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.cs-carousel-control-next-icon{
+    background-position-x: 5px !important;
+}
+
+.cs-carousel-control-prev-icon{
+    background-position-x: 4px !important;
+}
+
+.cs-header-section{
+    padding: 20px;
+}
+
+.cs-header-section-header-title{
+    padding-bottom: 20px;
+    color: rgba(0, 0, 0, .54);
+}
+
+
+.cs-header-section-item{
+    text-decoration: none;
+    width: 248px;
+    transition: transform 0.3s ease;
+
+}
+
+.cs-header-section-item:hover{
+    transform: translateY(-2px);
+}
+.cs-header-section-item-img{
+    padding: 0px 19px 0px 19px;
+}
+
+.cs-collection-card-title{
+    color: rgba(0, 0, 0, 0.87);
+    white-space: nowrap;         
+    overflow: hidden;            
+    text-overflow: ellipsis;  
+    
+}
+
+.cs-collection-card-price{
+    color: var(--primary);
+}
+
+.cs-collection-card-price span{
+    color: rgba(0, 0, 0, .26);
+    margin-right: 2px;
+}
+
+.cs-panel{
+    background-color: #F5F5F5;
+}
+
+.categories-list-header{
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.categories-list-sub-categories{
+    text-decoration: none;
+    color: black;
+}
+
+.cs-sort-bar{
+    padding: .8125rem 1.25rem;
+    background: rgba(0, 0, 0, .03);
+}
+
+
+.dropdown-toggle::after{
+    margin-left: 122px !important;
+} 
+
+.cs-title{
+    color: #555;
+}
+
+.cs-button{
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .02);
+    height: 2.125rem;
+    background: #fff;
+    padding: 0px 15px;
+}
+
+.cs-hightlight{
+    color: #fff;
+    background: var(--primary);
+}
+
+.cs-num-page{
+    color: var(--primary);
+}
+
+.cs-price{
+    background: #fff !important;
+    color: black !important;
+    border: none !important;
+    font-size: 1rem !important;
+    width: 183px;
+}
+
+.cs-btn-outline{
+    border: 1px solid rgba(0, 0, 0, .09);
+    border-radius: 2px;
+    color: rgba(0, 0, 0, .8);
+    width: 36px;
+    height: 36px;
+}
+
+.cs-btn-outline:hover{
+    background: #fff;
+}
+
+.cs-list-item{
+    width: 205.2px !important;
+    background: #fff;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.cs-list-item:hover{
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+
+.main-contain{
+    background: rgba(0, 0, 0, .03);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+}
+
+.cs-item-link{
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+}
+
+.cs-item-block{
+    box-sizing: border-box;
+    height: 100%;
+}
+.cs-item-pic-content{
+    width: 100%;
+    object-fit: cover;
+}
+
+.cs-item-desc{
+    padding: 8px;
+}
+
+.cs-item-desc,
+.cs-item-desc-title{
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+
+.cs-item-desc-content{
+    word-wrap: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.cs-item-desc-voucher{
+    align-items: center;
+    display: flex;
+    margin-top: .25rem;
+    overflow: hidden;
+}
+.cs-voucher{
+    display: inline-block;
+    color: var(--primary);
+    border-radius: .0625rem;
+    border: .0625rem solid;
+    background-color: transparent;
+    padding: .125rem .25rem;
+}
+
+.cs-item-desc-voucher >div:not(:last-child){
+    margin-right: .25rem;
+}
+
+.cs-item-desc-price{
+    
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: .5rem 0 0;
+}
+.cs-item-desc-price-sale{
+   
+    margin-right: .3125rem;
+    max-width: calc(100% - 32.35px);
+}
+
+.cs-unit{
+    font-size: .65rem !important;
+    color: var(--primary);
+}
+
+
+.cs-item-desc-price-origin{
+    color: rgba(0, 0, 0, .54);
+    text-decoration: line-through;
+}
+
+.cs-box-percent{
+    border-radius: .125rem !important;
+    margin-left: .125rem;
+    padding: .125rem !important;
+    background-color: #feeeea;
+    display: block;
+}
+
+.cs-content-percent{
+    font-size: .625rem !important;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.cs-item-rating{
+    margin-top: 12px;
+}
+
+.cs-item-located{
+    margin-top: 8px;
+}
+
+.cs-destination{
+    color: rgba(0, 0, 0, .65);
+    flex: 0 1 auto;
+    text-align: left;
+}
