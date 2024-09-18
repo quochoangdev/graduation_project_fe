@@ -138,7 +138,7 @@
     padding: 0px 15px;
 }
 
-.cs-hightlight{
+.cs-button.cs-hightlight{
     color: #fff;
     background: var(--primary);
 }

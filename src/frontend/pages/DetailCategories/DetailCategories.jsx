@@ -43,6 +43,12 @@ const DetailCategories = () => {
     e.preventDefault()
     setSelectedCategory(category)
   }
+
+  const [selectedButton, setSelectedButton] = useState(1);
+
+  const handleButtonClick = (Btnid) =>{
+    setSelectedButton(Btnid)
+  }
   return (
     <>
       <div className='container p-0 mt-4'>
@@ -220,9 +226,9 @@ const DetailCategories = () => {
             <div className='row m-0'>
               <div className='cs-sort-bar col-lg-8 d-flex justify-content-between align-items-center'>
                 <div className='cs-title'>Sắp xếp theo</div>
-                <div><button type="button" className="cs-popular cs-button cs-hightlight">Phổ Biến</button></div>
-                <div><button type="button" className="cs-new  cs-button ">Mới Nhất</button></div>
-                <div><button type="button" className="cs-best-seller cs-button ">Bán Chạy</button></div>
+                <div><button type="button" className={`cs-button ${selectedButton === 1 ? 'cs-hightlight' : ''}`} onClick={() => handleButtonClick(1)} >Phổ Biến</button></div>
+                <div><button type="button" className={`cs-button ${selectedButton === 2 ? 'cs-hightlight' : ''}`} onClick={() => handleButtonClick(2)}>Mới Nhất</button></div>
+                <div><button type="button" className={`cs-button ${selectedButton === 3 ? 'cs-hightlight' : ''}`} onClick={() => handleButtonClick(3)}>Bán Chạy</button></div>
                 <div className="dropdown">
                   <button className="cs-price btn dropdown-toggle text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                        Giá
