@@ -14,9 +14,8 @@ import Favorite from '@mui/icons-material/Favorite'
 import Rating from '@mui/material/Rating'
 import Checkbox, { checkboxClasses } from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react'
-import { ClassNames } from '@emotion/react'
-import classNames from 'classnames'
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
 const listCarousel = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -49,12 +48,12 @@ const DetailCategories = () => {
   }
 
   const [selectedButton, setSelectedButton] = useState(1)
- 
+
   const handleButtonClick = (Btnid) => {
     setSelectedButton(Btnid)
   }
 
-  const handelCheckShowBtn = (index) =>{
+  const handelCheckShowBtn = (index) => {
     const newCardState = [...cardState]
     newCardState[index] = !newCardState[index]
     setCardState(newCardState)
@@ -62,7 +61,7 @@ const DetailCategories = () => {
 
   const handleFavoriteClick = (event) => {
     event.stopPropagation()
-  };
+  }
   return (
     <>
       <div className='container p-0 mt-4'>
@@ -265,59 +264,16 @@ const DetailCategories = () => {
               <div className='main-contain'>
                 {listItem.map((item, index) => {
                   return (<div key={index} className='cs-list-item p-0'>
-                    <div className='cs-card' onClick={() => handelCheckShowBtn(index)}>
-                      <a className='cs-item-link'>
-                        <div className='cs-item-block'>
+                    <a className='cs-item-link'>
+                      <div className='cs-item-block'>
+                        <div className='cs-card'>
                           <div className='cs-item-pic'>
                             <img className='cs-item-pic-content' src={clo1}></img>
                           </div>
-                          <div className='cs-item-desc'>
-                            <div className='cs-item-desc-title'>
-                              <div className='cs-item-desc-content'>⚡️ Giá Sốc ⚡️Thắt lưng nam da cao cấp khóa kim loại tự động không gỉ - Cam kết 1 đổi 1 bảo hành 12 tháng</div>
-                            </div>
-                            <div className='cs-item-desc-voucher d-flex'>
-                              <div className='cs-voucher'>Rẻ Vô Địch</div>
-                              <div className='cs-voucher'>#ShopXuHuong</div>
-                            </div>
-                            <div className='cs-item-desc-price'>
-                              <div className='cs-item-desc-price-sale'><span className='cs-unit'>₫</span> <span className='cs-price'>1.000</span></div>
-                              <div className='cs-item-desc-price-origin'>₫10.000</div>
-                              <div className='cs-item-desc-price-percent'>
-                                <div className='cs-box-percent'>
-                                  <span className='cs-content-percent'>-90%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className='cs-item-rating d-flex align-items-center'>
-                              <div className='cs-item-rating-start me-2'>
-                                <Rating name="size-small" value={4} size="small" readOnly />
-                              </div>
-                              <div className='cs-item-sell'>Đã bán 366,2k</div>
-                            </div>
-                            <div className='cs-item-located d-flex align-items-center justify-content-between '>
-                              <div className='cs-destination'>TP. Hồ Chí Minh</div>
-                              <div><Checkbox {...label} onClick={handleFavoriteClick} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{ '& .MuiSvgIcon-root': { fontSize: 14 } }}/></div>
-                            </div>
-                            <div className={`cs-card-body ${cardState[index] ? 'active' : ''}`}>
-                              <button className="cs-custom-btn codepro-custom-btn codepro-btn-3 me-1"><span>ADD TO CART</span></button>
-                              <button className="cs-custom-btn codepro-custom-btn codepro-btn-3"><span>SEE DETAIL</span></button>
-                            </div>
+                          <div className='cs-card-body'>
+                            <Link to = '#' ><button className='cs-custom-btn codepro-custom-btn codepro-btn-3 me-2'><span>ADD TO CART</span></button></Link>
+                            <Link to = '#' ><button className='cs-custom-btn codepro-custom-btn codepro-btn-3' ><span>SEE DETAIL</span></button></Link>
                           </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>)
-                })}
-              </div>
-            </div>
-            <div className='row m-0'>
-              <div className='main-contain'>
-                {listItem.map((item, index) => {
-                  return (<div key={index} className='cs-list-item p-0'>
-                    <a className='cs-item-link'>
-                      <div className='cs-item-block'>
-                        <div className='cs-item-pic'>
-                          <img className='cs-item-pic-content' src={clo1}></img>
                         </div>
                         <div className='cs-item-desc'>
                           <div className='cs-item-desc-title'>
@@ -342,8 +298,58 @@ const DetailCategories = () => {
                             </div>
                             <div className='cs-item-sell'>Đã bán 366,2k</div>
                           </div>
-                          <div className='cs-item-located'>
+                          <div className='cs-item-located d-flex align-items-center justify-content-between '>
                             <div className='cs-destination'>TP. Hồ Chí Minh</div>
+                            <div><Checkbox {...label} onClick={handleFavoriteClick} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{ '& .MuiSvgIcon-root': { fontSize: 14 } }}/></div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>)
+                })}
+              </div>
+            </div>
+            <div className='row m-0'>
+              <div className='main-contain'>
+                {listItem.map((item, index) => {
+                  return (<div key={index} className='cs-list-item p-0'>
+                    <a className='cs-item-link'>
+                      <div className='cs-item-block'>
+                        <div className='cs-card'>
+                          <div className='cs-item-pic'>
+                            <img className='cs-item-pic-content' src={clo1}></img>
+                          </div>
+                          <div className='cs-card-body'>
+                            <Link to = '#' ><button className='cs-custom-btn codepro-custom-btn codepro-btn-3 me-2'><span>ADD TO CART</span></button></Link>
+                            <Link to = '#' ><button className='cs-custom-btn codepro-custom-btn codepro-btn-3' ><span>SEE DETAIL</span></button></Link>
+                          </div>
+                        </div>
+                        <div className='cs-item-desc'>
+                          <div className='cs-item-desc-title'>
+                            <div className='cs-item-desc-content'>⚡️ Giá Sốc ⚡️Thắt lưng nam da cao cấp khóa kim loại tự động không gỉ - Cam kết 1 đổi 1 bảo hành 12 tháng</div>
+                          </div>
+                          <div className='cs-item-desc-voucher d-flex'>
+                            <div className='cs-voucher'>Rẻ Vô Địch</div>
+                            <div className='cs-voucher'>#ShopXuHuong</div>
+                          </div>
+                          <div className='cs-item-desc-price'>
+                            <div className='cs-item-desc-price-sale'><span className='cs-unit'>₫</span> <span className='cs-price'>1.000</span></div>
+                            <div className='cs-item-desc-price-origin'>₫10.000</div>
+                            <div className='cs-item-desc-price-percent'>
+                              <div className='cs-box-percent'>
+                                <span className='cs-content-percent'>-90%</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='cs-item-rating d-flex align-items-center'>
+                            <div className='cs-item-rating-start me-2'>
+                              <Rating name="size-small" value={4} size="small" readOnly />
+                            </div>
+                            <div className='cs-item-sell'>Đã bán 366,2k</div>
+                          </div>
+                          <div className='cs-item-located d-flex align-items-center justify-content-between '>
+                            <div className='cs-destination'>TP. Hồ Chí Minh</div>
+                            <div><Checkbox {...label} onClick={handleFavoriteClick} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{ '& .MuiSvgIcon-root': { fontSize: 14 } }}/></div>
                           </div>
                         </div>
                       </div>
