@@ -62,10 +62,20 @@
 
 .cs-header-section-item{
     text-decoration: none;
-    width: 248px;
     transition: transform 0.3s ease;
+    margin: 5px;
 
 }
+
+.cs-header-section-item > :first-child{
+    margin-left: 0;
+}
+
+.cs-header-section-item > :last-child{
+    margin-right: 0;
+}
+
+
 
 .cs-header-section-item:hover{
     transform: translateY(-2px);
@@ -235,7 +245,8 @@
     border-radius: .0625rem;
     border: .0625rem solid;
     background-color: transparent;
-    padding: .125rem .25rem;
+    padding: 1px 2px;
+    font-size: 10px;
 }
 
 .cs-item-desc-voucher >div:not(:last-child){
@@ -321,5 +332,143 @@
  .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
     font-size: 14px;
 }
+
+.MuiRating-root.MuiRating-sizeSmall{
+    font-size: 0.725rem;
+}
+
+.cs-card{
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.cs-card-body{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    right: -100%;
+    position: absolute;
+    background: #1f3d4738;
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    right: -100%;
+    transition: 0.4s;
+}
+
+.cs-card-body.active{
+    right: 0;
+}
+
+
+.cs-custom-btn{
+    margin-top: 100px;
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, .5), 7px 7px 20px 0 rgba(0, 0, 0, .1), 4px 4px 5px 0 rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+.codepro-btn-3 {
+    background: var(--primary);
+    background: linear-gradient(0deg, rgb(0, 238, 143) 0%, rgb(2, 251, 35) 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.codepro-btn-3 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    transition: color 0.3s ease;
+}
+
+.codepro-btn-3:before,
+.codepro-btn-3:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.codepro-btn-3:before {
+    height: 0%;
+    width: 2px;
+}
+
+.codepro-btn-3:after {
+    width: 0%;
+    height: 2px;
+}
+
+.codepro-btn-3:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.codepro-btn-3:hover:before {
+    height: 100%;
+}
+
+.codepro-btn-3:hover:after {
+    width: 100%;
+}
+
+.codepro-btn-3 span:hover {
+    color: var(--primary);
+}
+
+.codepro-btn-3 span:before,
+.codepro-btn-3 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.codepro-btn-3 span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.codepro-btn-3 span:after {
+    width: 0%;
+    height: 2px;
+}
+
+.codepro-btn-3 span:hover:before {
+    height: 100%;
+}
+
+.codepro-btn-3 span:hover:after {
+    width: 100%;
+}
+
+
 
 
