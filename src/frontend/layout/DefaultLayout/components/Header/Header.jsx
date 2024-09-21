@@ -10,24 +10,23 @@ const Header = () => {
         <div className='row mt-2'>
           <div className='col-6'>
             <div className='d-flex align-items-center'>
-              <a className='link-social-left' href='#'>Categories Item</a>
+              <a className='link-social-left' href='#'>Kênh người bán</a>
               <span className='wall-center-link'></span>
-              <a className='link-social-left' href='#'>Categories Item</a>
+              <a className='link-social-left' href='#'>trở thành người bán hàng E-Shop</a>
               <span className='wall-center-link'></span>
-              <a className='link-social-left' href='#'>Categories Item</a>
+              <a className='link-social-left' href='#'>Tải ứng dụng</a>
               <span className='wall-center-link'></span>
-              <a className='link-social-left' href='#'>Categories Item</a>
-              <span className='wall-center-link'></span>
-              <a className='link-social-left' href='#'>Categories Item</a>
+              <a className='link-social-left' href='#'>Kết Nối</a>
             </div>
           </div>
           <div className='col-6'>
             <div className='d-flex align-items-center justify-content-end'>
-              <a className='link-social-right' href='#'>Thong bao</a>
-              <a className='link-social-right' href='#'>Categories Item</a>
-              <a className='link-social-right' href='#'>Categories Item</a>
-              <a className='link-social-right' href='#'>Categories Item</a>
-              <a className='link-social-right' href='#'>Categories Item</a>
+              <a className='link-social-right' href='#'>Thông báo</a>
+              <a className='link-social-right' href='#'>Hỗ trợ</a>
+              <a className='link-social-right' href='#'>Tiếng việt</a>
+              <a className='link-social-right' href='#'>Đăng Ký</a>
+              <span className='wall-center-link'></span>
+              <a className='link-social-left' href='#'>Đăng nhập</a>
             </div>
           </div>
         </div>
