@@ -49,3 +49,11 @@
   color: var(--primary);
 }
 
+/* background */
+.gl-bg-primary{
+  background-color: var(--primary);
+}
+
+.gl-bg-transparent{
+  background-color: transparent;
+}
