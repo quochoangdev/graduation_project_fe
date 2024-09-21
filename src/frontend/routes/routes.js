@@ -6,6 +6,7 @@ import Register from '../pages/Register'
 import Home from '../pages/Home'
 import ProductDetail from '../pages/ProductDetail/ProductDetail'
 import AllCategories from '../pages/AllCategories'
+import DetailCategories from '../pages/DetailCategories/DetailCategories'
 
 const frontendRoutes = [
   {
@@ -33,6 +34,11 @@ const frontendRoutes = [
     component: AllCategories,
     layout: DefaultLayout
   },
+  {
+    path: config.routes.detailCategories,
+    component: DetailCategories,
+    layout: DefaultLayout
+  }
 ]
 
 export { frontendRoutes }
