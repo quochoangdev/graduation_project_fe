@@ -6,7 +6,7 @@ import LogoSmall from '../../../../components/Logo/LogoSmall'
 const Header = () => {
   return (
     <header className='gl-bg-primary w-100'>
-      <div className='container gl-bg-transparent'>
+      <div className='container gl-bg-transparent py-1'>
         <div className='row mt-2'>
           <div className='col-6'>
             <div className='d-flex align-items-center'>
