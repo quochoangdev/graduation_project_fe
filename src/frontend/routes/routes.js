@@ -4,6 +4,7 @@ import LoginLayout from '../layout/LoginLayout'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Home from '../pages/Home'
+import ProductDetail from '../pages/ProductDetail/ProductDetail'
 import AllCategories from '../pages/AllCategories'
 import DetailCategories from '../pages/DetailCategories/DetailCategories'
 
@@ -23,7 +24,12 @@ const frontendRoutes = [
     component: Home,
     layout: DefaultLayout
   },
-  {
+    {
+    path: config.routes.productDetail,
+    component: ProductDetail,
+    layout: DefaultLayout
+  },
+    {
     path: config.routes.allCategories,
     component: AllCategories,
     layout: DefaultLayout

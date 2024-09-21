@@ -41,7 +41,7 @@
 }
 
 .gl-font-size-16 {
-  font-size: 16x;
+  font-size: 16px;
 }
 
 /* color */
@@ -49,3 +49,11 @@
   color: var(--primary);
 }
 
+/* background */
+.gl-bg-primary{
+  background-color: var(--primary);
+}
+
+.gl-bg-transparent{
+  background-color: transparent;
+}

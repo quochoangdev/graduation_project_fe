@@ -5,8 +5,8 @@ import HeadlessTippy from '@tippyjs/react/headless'
 
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
-import ProductItem from './ProductItem/ProductItem'
-import useDebounce from '../../../../main/hooks/useDebounce'
+// import ProductItem from './ProductItem/ProductItem'
+import useDebounce from '../../../../hooks/useDebounce'
 // import { readProductSearch } from '../../../services/apiUserService'
 
 const cx = classNames.bind(styles)
@@ -72,7 +72,8 @@ const Search = () => {
             <div className={cx('search-result')} tabIndex='-1' {...attrs}>
               <h4 className={cx('result-title')}>Sản phẩm gợi ý</h4>
               {searchResult && searchResult.map((apiItem, index) => {
-                return <ProductItem product={apiItem} key={`product-${index}`} />
+                // return <ProductItem product={apiItem} key={`product-${index}`} />
+                return undefined
               })}
             </div>
           )
