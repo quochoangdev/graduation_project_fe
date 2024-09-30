@@ -1,7 +1,9 @@
 // search fullscreen on click social-category-link
 :root {
     --width-input-default : 300px;
+    --width-input-default : 100%;
     --height-input-default: 32px;
+    --height-input-default: 40px;
 }
 
 .header-search {
@@ -17,7 +19,7 @@
             height       : var(--height-input-default);
             background   : #FFF;
             color        : #1d1d1f;
-            border-radius: 3px;
+            border-radius: 2px;
             border       : none;
             padding      : 8px 42px 8px 8px;
 
@@ -28,11 +30,11 @@
 
 
         .clear {
-            color           : #1D47EF;
+            color           : var(--primary);
             position        : absolute;
             top             : 50%;
             transform       : translateY(-50%);
-            right           : calc(calc(var(--height-input-default) - 4px) + 8px);
+            right           : calc(calc(var(--height-input-default) - 4px) + 30px);
             border          : none;
             background-color: #FFF;
 
@@ -68,10 +70,10 @@
             position        : absolute;
             top             : 50%;
             transform       : translateY(-50%);
-            right           : calc(calc(var(--height-input-default) - 4px) + 6px);
+            right           : calc(calc(var(--height-input-default) - 4px) + 26px);
             width           : 1px;
             height          : calc(var(--height-input-default) - 10px);
-            background-color: #1D47EF;
+            background-color: var(--primary);
         }
 
         .btn-search {
@@ -82,11 +84,11 @@
             display         : flex;
             align-items     : center;
             justify-content : center;
-            width           : calc(var(--height-input-default) - 4px);
+            width           : calc(var(--height-input-default) + 16px);
             height          : calc(var(--height-input-default) - 4px);
             border          : none;
-            border-radius   : 3px;
-            background-color: #1D47EF;
+            border-radius   : 2px;
+            background-color: var(--primary);
             outline         : none;
             cursor          : pointer;
 
@@ -108,7 +110,7 @@
         margin-top      : -10px;
         left            : 50%;
         transform       : translateX(-50%);
-        border-radius   : 3px;
+        border-radius   : 2px;
         padding         : 0px 8px 8px 16px;
         background-color: #FFF;
         box-shadow      : rgba(0, 0, 0, 0.12) 0px 2px 12px;

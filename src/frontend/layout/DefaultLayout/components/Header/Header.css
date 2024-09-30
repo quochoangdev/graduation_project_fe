@@ -1,0 +1,38 @@
+.icon-cart{
+  color: #fff;
+  font-size: 36px;
+  margin-left: -60px;
+}
+
+.cs-badges{
+  top: 24% !important;
+}
+
+.link-social-left{
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.link-social-right{
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  margin-left: 13px;
+}
+
+.wall-center-link{
+  width: 1px;
+  height: 13px;
+  background-color: white;
+  margin: 0 6px;
+  opacity: 0.4;
+}
+
+.link-categories{
+  margin-top: -6px;
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+  margin-right: 13px;
+}
