@@ -2,6 +2,7 @@
 .container {
     padding-bottom: 60px;
 }
+
 .cs-path-product {
     margin-top: 20px;
     height: 1rem;
@@ -75,6 +76,17 @@
     margin-left: 5px;
     cursor: pointer;
 }
+.cs-share-fb {
+    width: 25px;
+    height: 25px;
+    color: blue;
+}
+.cs-likes-product-icon {
+    width: 25px; 
+    height: 25px; 
+    color: #ff424f; 
+    margin-right: 10px;
+}
 
 .cs-product-information-section {
     padding-top: 20px;
@@ -106,6 +118,11 @@
     margin-right: 5px;
     font-size: 1rem;
     border-bottom: 1px solid #555;
+    padding-bottom: 1px;
+}
+.cs-sold {
+    margin-right: 5px;
+    font-size: 1rem;
     padding-bottom: 1px;
 }
 .cs-report {
@@ -153,8 +170,7 @@
 }
 .cs-option-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
     padding: 4px;
 }
 .cs-option-title {
@@ -199,31 +215,41 @@
     text-align: left;
     word-break: break-word;
 }
-
+.cs-option-transport {
+    display: flex;
+}
+.cs-option-transport-icon {
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 20px;
+}
+.cs-option-transport-location {
+    cursor: pointer;
+}
 .cs-btn-quantity {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: transparent;
     border: 0;
     border: 1px solid rgba(0, 0, 0, .09);
     border-radius: 2px;
     color: rgba(0, 0, 0, .8);
-    cursor: pointer;
     font-size: .875rem;
     font-weight: 300;
     height: 32px;
-    justify-content: center;
+    width: 32px;
     letter-spacing: 0;
     line-height: 1;
     outline: none;
     transition: background-color .1s cubic-bezier(.4,0,.6,1);
-    width: 32px;
+    cursor: pointer;
 }
 .cs-quantity-input {
     border-left: 0;
     border-radius: 0;
     border-right: 0;
-    box-sizing: border-box;
     cursor: text;
     font-size: 16px;
     font-weight: 400;
@@ -239,23 +265,40 @@
 .cs-quantity-input:focus-visible {
     box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
 }
-/*
+.cs-btn-add-cart {
+    color: var(--primary);
+    background-color: #ecfff1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 190px;
+    min-width: 180px;
+    height: 48px;
+    padding: 0 12px;
+    font-size: 14px;
+    border: 1px solid var(--primary);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+}
+.cs-btn-add-cart:hover {
+    background-color: #d4ffdf;
+}
+.cs-btn-add-cart-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
 .cs-btn-buy {
     padding: 0 20px;
     height: 48px;
     max-width: 250px;
+    min-width: 180px !important;
     background: var(--primary);
-    color: #fff;
-    outline: 0;
-    overflow: visible;
     border: 0;
     border-radius: 2px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .09);
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     cursor: pointer;
 }
-*/
 
 .cs-product-shop {
     border-radius: 3px;
@@ -292,6 +335,27 @@
     display: flex;
     font-size: 14px;
 }
+.cs-shop {
+    display: flex;
+    margin-top: 8px;
+}
+.cs-btn-chat-shop {
+    color: var(--primary);
+    background-color: #ecfff1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 190px;
+    min-width: 60px;
+    height: 34px;
+    font-size: 14px;
+    border: 1px solid var(--primary);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+}
+.cs-btn-add-cart:hover {
+    background-color: #d4ffdf;
+}
 .cs-btn-to-shop{
     background-color: #e3ffea;
     display: inline-flex;
@@ -302,16 +366,19 @@
     height: 34px;
     font-size: 14px;
     border: 1px solid rgba(0, 0, 0, .09);
+    border-radius: 2px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
-    color: #555;
-    outline: 0;
-    overflow: visible;
     color: #555;
     text-decoration: none;
 
 }
 .cs-btn-to-shop:hover {
     background: rgba(0, 0, 0, .02);
+}
+.btn-shop-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
 }
 .cs-info-shop-orther {
     display: grid;
@@ -321,7 +388,12 @@
     gap: 20px 50px;
 }
 .cs-product-content {
+    display: flex;
     min-height: 40rem;
+}
+.cs-content-header {
+    background: rgba(0, 0, 0, .02);
+    color: rgba(0, 0, 0, .87);
 }
 .cs-product-detail {
     background-color: #fff;
@@ -344,14 +416,18 @@
 }
 
 .cs-product-rating-overview {
-    background-color: #e3ffea;
+    background-color: #f3fff6;
     border: 1px solid #c1f2cd;
     border-radius: 2px;
 }
 
-.cs-product-rating-score  .rating-score {
+.cs-product-rating-score {
     color: var(--primary);
     font-size: 1.125rem;
+}
+.cs-product-rating-filter {
+    display: flex;
+    flex: 1;
 }
 .cs-product-rating-filter .cs-product-rating-filter_item {
     background-color: #fff;
@@ -372,7 +448,107 @@
     text-decoration: none;
     user-select: none;
 }
-
+.cs-product-rating-comment-item {
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(0, 0, 0, .09);
+    display: flex;
+    padding: 1rem 0 1rem 1.25rem;
+}
+.cs-product-rating-comment-item:first-child {
+    padding-top: 0;
+}
+.cs-comment-author-name {
+    color: rgba(0, 0, 0, .87);
+    font-size: .75rem;
+    text-decoration: none;
+}
+.cs-comment-img-video {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.cs-comment-item-img {
+    width: 100%;
+    cursor: zoom-in;
+    object-fit: cover;
+}
+.cs-zoom-control-btn {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: all .1s cubic-bezier(.4,0,.6,1);
+}
+.cs-zoom-block {
+    position: relative;
+}
+.cs-control-img-zoom-icon {
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    line-height: 25px;
+    color: rgba(0, 0, 0, .54);
+    cursor: pointer;
+}
+.cs-comment-shop-reply {
+    background-color: #f5f5f5;
+    margin-bottom: .75rem;
+    padding: .875rem .75rem;
+    position: relative;
+}
+.cs-shop-reply-header {
+    color: rgba(0, 0, 0, .87);
+    font-size: .875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.cs-shop-reply-main {
+    color: rgba(0, 0, 0, .65);
+    margin-top: .625rem;
+    white-space: pre-wrap;
+}
+.cs-action-like-icon {
+    cursor: pointer;
+}.cs-action-report {
+    cursor: pointer;
+    position: relative;
+}
+.cs-report-comment {
+    position: absolute!important;
+    inset: 0 0 auto auto!important;
+    min-width: 108px!important;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .09)!important;
+    border-radius: 2px!important;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .05);
+    cursor: pointer;
+}
+.cs-check-input-report:checked {
+    background-color: var(--primary)!important;
+    border-color: var(--primary)!important;
+}
+.cs-inputReport {
+    appearance: none;
+    border: .5px solid rgba(0, 0, 0, .09);
+    border-radius: .125rem;
+    margin-bottom: .75rem;
+    outline: none;
+    padding: .75rem;
+    width: 90%;
+}
+.cs-btn-modal-report {
+    width: 140px;
+    border-radius: 2px!important;
+}
+.cs-btn-modal-report.disable {
+    opacity: 0.25!important;
+    cursor: not-allowed!important;
+}
+.btn:disabled {
+    pointer-events: all!important;
+    background-color: var(--primary)!important;
+}
 .cs-recommendation-header {
     padding-top: 1.25rem;
     line-height: 1;
@@ -386,8 +562,48 @@
     font-size: 1rem;
     font-weight: 500;
 }
-
-
+.cs-right-content-header {
+    color: rgba(0, 0, 0, .4);
+    font-size: inherit;
+    font-weight: 400;
+    margin: .625rem 0 0;
+    padding: 0 5px;
+    text-transform: capitalize;
+}
+.cs-product-hot-sales {
+    margin-left: .9375rem;
+    background: #fff;
+    border-radius: .125rem;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    margin-top: .9375rem;
+    overflow: hidden;
+    padding: .625rem;
+}
+.cs-product-hot-sales-item {
+    border-bottom: 1px solid rgba(0, 0, 0, .09);
+    padding: 1.25rem 0;
+    cursor: pointer;
+}
+.cs-item-card {
+    cursor: pointer;
+}
+.cs-item-card-img {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.cs-item-card-body {
+    padding: 0 10px;
+}
+.cs-item-card-name {
+    padding-top: 5px;
+    line-height: 1rem;
+    margin-bottom: 4px;
+}
+.cs-item-card-price {
+    color: var(--primary);
+    display: block;
+    height: 2.625rem;
+}
 
 
 /* modal */

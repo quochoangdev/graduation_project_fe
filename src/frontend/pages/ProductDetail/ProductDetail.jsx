@@ -1,41 +1,42 @@
 import './ProductDetail.css'
 import { Link } from 'react-router-dom'
 import config from '../../config'
-import { useEffect, useRef, useState } from 'react'
-import { FaFacebook, FaRegStar, FaStar, FaRegHeart, FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
+import { useRef, useState } from 'react'
+import { FaFacebook, FaRegStar, FaStar, FaRegHeart, FaChevronLeft, FaChevronRight, FaAngleDown } from 'react-icons/fa6'
 import { RiAddLine, RiSubtractLine } from 'react-icons/ri'
 import { CiShop } from 'react-icons/ci'
+import { BsCartPlus, BsThreeDotsVertical } from 'react-icons/bs'
+import { FiTruck } from 'react-icons/fi'
+import { IoIosChatboxes } from 'react-icons/io'
+import { BiSolidLike } from 'react-icons/bi'
 
-let imgStart = 0, imgEnd = imgStart + 5
 let indexImgModule = 0
 
 const Product = () => {
+  const handleCheck = () => {
+    alert('hello')
+  }
+
   const describeScroll = useRef()
-  const imgDetail = []
-  const [imageDefault, setImageDefault] = useState(imgDetail[0] || '')
-  const [imageList, setImageList] = useState([])
+  const imgDetail = [1, 2, 3, 4, 5, 6, 7]
+  const imageList = imgDetail.slice(0, 5)
+  const classify = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  const productsHotSale = [1, 2, 3]
+  const listComment = [1, 2, 3, 4]
+  const commentImg = ['https://down-vn.img.susercontent.com/file/450b418d5d2095e8a24a9c075d3229fe.webp', 'https://down-vn.img.susercontent.com/file/b3f363d0864a08af59ccc851e6d4876e.webp', 'https://down-vn.img.susercontent.com/file/041e3d5a798d127adc636c38d3cb79f7.webp']
+
   const [quantityProduct, setQuantityProduct] = useState(1)
   const [imageModule, setImageModule] = useState(imgDetail[0] || '')
 
-  useEffect(() => {
-    setImageList(imgDetail.slice(0, 5))
-  }, [imgDetail])
+  const [isCheckedReport, setIsCheckedReport] = useState('')
+  const [commentImgZoom, setCommentImgZoom] = useState('')
+  const [isZoomImg, setIsZoomImg] = useState(false)
+  const [indexCmtST, setIndexCmtST] = useState()
 
-  function handleClickListImageLeft() {
-    if (imgStart > 0) {
-      imgStart--
-      imgEnd = imgStart + 5
-      setImageList(imgDetail.slice(imgStart, imgEnd))
-    } else return
+  const handleClickListImageLeft = () => {
   }
 
   const handleClickListImageRight = () => {
-    if (imgEnd < imgDetail.length) {
-      imgStart++
-      imgEnd = imgStart + 5
-      setImageList(imgDetail.slice(imgStart, imgEnd))
-    }
-    else return
   }
 
   const handleAddQuantity = () => {
@@ -75,6 +76,26 @@ const Product = () => {
     setImageModule(foundImage)
   }
 
+  const handleRadioChange = (event) => {
+    // Kiểm tra nếu radio này được chọn
+    setIsCheckedReport(event.target.id)
+  }
+  const handleImgZoom = (src, indexCmt) => {
+    console.log(indexCmtST)
+    if (commentImgZoom === src) {
+      setCommentImgZoom('')
+      setIsZoomImg(false)
+    }
+    else {
+      setIndexCmtST(indexCmt)
+      setIsZoomImg(true)
+      setCommentImgZoom(src)
+    }
+  }
+  const handlePrevImgZoom = () => {
+  }
+  const handleNextImgZoom = () => {
+  }
   return (
     <div className='container'>
       <div className='cs-path-product d-flex align-items-center'>
@@ -90,16 +111,17 @@ const Product = () => {
         <div className='cs-product-briefing d-flex p-0'>
           <div className='col-4'>
             <div className='cs-product-image'>
-              <div className='cs-position-relative'>
-                <img className='h-100 w-100' src={imageDefault} alt='image'/>
+              <div className='position-relative'>
+                <img className='h-100 w-100' src={'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp'} alt='image'/>
               </div>
               <div className='cs-list-image position-relative my-1'>
                 <div className='cs-list-image-block' ref={describeScroll}>
                   {imageList.map((data, index) => {
                     return (
-                      <div className='cs-list-img-block-item d-block' key={index} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => handleClickShowImgModule(data)}>
-                        <img className='cs-image-item' src={data} />
-                      </div>)
+                      <div className='cs-list-img-block-item d-block' key={index} data-bs-toggle="modal" data-bs-target="#imgProductModal" onClick={() => handleClickShowImgModule(data)}>
+                        <img className='cs-image-item' src={'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp'} />
+                      </div>
+                    )
                   })}
                 </div>
                 <div className='cs-list-image-button start-0 top-50'><FaChevronLeft style={{ height: '25' }} onClick={handleClickListImageLeft} /></div>
@@ -109,11 +131,11 @@ const Product = () => {
                 <div className='cs-share-product d-flex'>
                   <span className='cs-share-title'>Chia sẻ:</span>
                   <div className='cs-share-item'>
-                    <FaFacebook style={{ width: '25px', height: '25px', color: 'blue' }} />
+                    <FaFacebook className='cs-share-fb'/>
                   </div>
                 </div>
                 <div className='d-flex align-items-center justify-content-center flex-grow-1'>
-                  <FaRegHeart style={{ width: '25px', height: '25px', color: '#ff424f', marginRight: '10px' }} />
+                  <FaRegHeart className='cs-likes-product-icon'/>
                   <span className='gl-font-size-16'>Đã thích</span>
                 </div>
               </div>
@@ -128,24 +150,37 @@ const Product = () => {
                 <div className='d-flex align-items-center pe-3'>
                   <span className='cs-score-rating me-1'>0.0</span>
                   <div className='py-1 me-1 d-flex'>
-                    <div style={{ marginRight: '1px' }} className='cs-star'>
-                      <FaRegStar style={{ width:'16', height:'16', color:'var(--primary)' }}/>
+                    <div className='cs-star'>
+                      <FaStar className='gl-star'/>
                     </div>
-                    <div style={{ marginRight: '1px' }} className='cs-star'>
-                      <FaStar style={{ width:'16', height:'16', color:'var(--primary)' }}/>
+                    <div className='cs-star'>
+                      <FaStar className='gl-star'/>
+                    </div>
+                    <div className='cs-star'>
+                      <FaRegStar className='gl-star'/>
+                    </div>
+                    <div className='cs-star'>
+                      <FaRegStar className='gl-star'/>
+                    </div>
+                    <div className='cs-star'>
+                      <FaRegStar className='gl-star'/>
                     </div>
                   </div>
                 </div>
                 <div className='cs-rating-cmt px-3'>
                   <span className='cs-cmt-quantity'>3.6k</span>
-                  <span className='py-1' style={{ color: '#767676' }}>Đánh giá</span>
+                  <span className='py-1 gl-sub-color-text'>Đánh giá</span>
+                </div>
+                <div className='cs-rating-cmt px-3'>
+                  <span className='cs-sold'>3.6k</span>
+                  <span className='py-1 gl-sub-color-text'>Đã bán</span>
                 </div>
                 <div className='cs-report'>Tố cáo</div>
               </div>
               <div className='cs-price-product mt-2'>
-                <div className='cs-price-default'><span style={{ fontSize: '10px' }}>₫</span>199.000</div>
+                <div className='cs-price-default'><span className='gl-font-size-10'>₫</span>199.000</div>
                 <div className='d-flex align-items-center'>
-                  <div className='cs-price'><span style={{ fontSize: '20px' }}>₫</span>129.000</div>
+                  <div className='cs-price'><span className='gl-font-size-20'>₫</span>129.000</div>
                   <div className='cs-discount'>47% giảm</div>
                 </div>
               </div>
@@ -154,14 +189,45 @@ const Product = () => {
                   <div className='cs-option-item'>
                     <h3 className='cs-option-title'>Mã giảm giá của shop</h3>
                     <div className='cs-option-value'>
-
+                    </div>
+                  </div>
+                  <div className='cs-option-item'>
+                    <h3 className='cs-option-title'>Vận chuyển</h3>
+                    <div className='cs-option-transport'>
+                      <div className='mx-1'>
+                        <FiTruck className='cs-option-transport-icon'/>
+                      </div>
+                      <div className='d-flex ms-2'>
+                        <span className='gl-sub-color-text me-2'>Vận chuyển tới</span>
+                        <div className='cs-option-transport-location ps-1'>Phường Hòa An, Quận Cẩm Lệ<FaAngleDown className='ms-1'/></div>
+                      </div>
                     </div>
                   </div>
                   <div className='cs-option-item'>
                     <h3 className='cs-option-title'>Phân loại</h3>
-                    <div className='cs-option-value'>
-                      <div className='cs-option-value-item'>
-                        <button className='cs-option-value-item-btn' aria-label="Samsung A05S" aria-disabled="false">Xanh Nhạt T1</button>
+                    <div>
+                      <div className='cs-option-value'>
+                        {classify.map((data, index) => {
+                          return (
+                            <div className='cs-option-value-item' key={index}>
+                              <button className='cs-option-value-item-btn'>Xanh Nhạt T1</button>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                  <div className='cs-option-item'>
+                    <h3 className='cs-option-title'>Kích cỡ</h3>
+                    <div>
+                      <div className='cs-option-value'>
+                        {classify.map((data, index) => {
+                          return (
+                            <div className='cs-option-value-item' key={index}>
+                              <button className='cs-option-value-item-btn'>26</button>
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   </div>
@@ -177,14 +243,16 @@ const Product = () => {
                           <RiAddLine />
                         </button>
                       </div>
-                      <span style={{ color: '#757575' }}>... sản phẩm có sẵn</span>
+                      <span className='gl-sub-color-text'>... sản phẩm có sẵn</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className='mt-3'>
-                <button type='button' className='btn btn-primary py-3 px-4'>Mua ngay</button>
+              <div className='ps-3 mt-3 d-flex align-items-center'>
+                <button type='button' className='cs-btn-add-cart me-3'><BsCartPlus className='cs-btn-add-cart-icon'/>Thêm vào giỏ hàng</button>
+                <button type='button' className='cs-btn-buy btn-primary'>Mua ngay</button>
               </div>
+              <div style={{ marginTop: '30px', borderTop: '1px solid rgba(0, 0, 0, 0.05)' }}></div>
             </div>
           </div>
         </div>
@@ -192,14 +260,18 @@ const Product = () => {
           <div className='p-3'>
             <div className='d-flex pe-3'>
               <div className='cs-shop-avatar me-3'>
-                <img alt="click here to visit shop" className="Qm507c" src="https://down-vn.img.susercontent.com/file/vn-11134004-7r98o-llddq2htpnee0b_tn" />
+                <img alt="click here to visit shop" className="" src="https://down-vn.img.susercontent.com/file/vn-11134004-7r98o-llddq2htpnee0b_tn" />
               </div>
               <div className='cs-info-shop'>
                 <div className="name-shop">Shopee Topick Global</div>
                 <div className='cs-status-shop'>Online 11 phút trước</div>
-                <div className='cs-shop mt-1'>
-                  <Link type="button" className='cs-btn-to-shop px-2'>
-                    <CiShop style={{ height: '18', width: '18', marginRight: '5' }} />
+                <div className='cs-shop'>
+                  <button type="button" className='cs-btn-chat-shop px-3 me-2'>
+                    <IoIosChatboxes className='btn-shop-icon'/>
+                    Chat ngay
+                  </button>
+                  <Link type="button" className='cs-btn-to-shop px-3'>
+                    <CiShop className='btn-shop-icon'/>
                     Xem shop
                   </Link>
                 </div>
@@ -207,136 +279,207 @@ const Product = () => {
               <div className='cs-info-shop-orther ps-4 flex-grow-1'>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Đánh giá</label>
-                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
+                  <span className="me-2 gl-color-primary">64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Tỉ lệ phản hồi</label>
-                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
+                  <span className="me-2 gl-color-primary">64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Tham gia</label>
-                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
+                  <span className="me-2 gl-color-primary">64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Sản phẩm</label>
-                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
+                  <span className="me-2 gl-color-primary">64,4k</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Thời gian phản hồi</label>
-                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
+                  <span className="me-2 gl-color-primary">Trong vài giờ</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <label className="me-2">Người theo dõi</label>
-                  <span className="me-2" style={{ color: 'var(--primary)' }}>64,4k</span>
+                  <span className="me-2 gl-color-primary">64,4k</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className='cs-product-content p-0 m-0'>
-          <div className='cs-product-detail'>
-            <div className='p-3'>
-              <h2 className='cs-p-3 fs-5 fw-normal'>CHI TIẾT SẢN PHẨM</h2>
-              <div className='mx-3 mt-4 mb-3'>
-                <div className='d-flex mb-3'>
-                  <div className='cs-product-detail-title'>Danh mục</div>
-                  <div>1185</div>
-                </div>
-              </div>
-            </div>
-            <div className='p-3'>
-              <h2 className='cs-p-3 fs-5 fw-normal'>MÔ TẢ SẢN PHẨM</h2>
-              <div className='mx-3 mt-4 mb-3'>
-                lllll
-              </div>
-            </div>
-            <div></div>
-          </div>
-          <div className='cs-product-rating mt-3 p-4'>
-            <div className='cs-product-rating-header p-3 fs-5 fw-normal mb-3'>ĐÁNH GIÁ SẢN PHẨM</div>
-            <div className='cs-product-rating-overview d-flex p-4 mb-3'>
-              <div className='cs-product-rating-score me-4'>
-                <div className='cs-rating-score'>
-                  <span className='fs-3'>4.6 </span>
-                  <span>trên 5</span>
-                </div>
-                <div className='cs-rating-star mt-2'>
-                  <div className='d-flex'>
-                    <FaRegStar style={{ width:'19', height:'19', color:'var(--primary)' }}/>
-                    <FaStar style={{ width:'19', height:'19', color:'var(--primary)' }}/>
+        <div className='cs-product-content p-0 m-0 row'>
+          <div className='left-content col-10 p-0'>
+            <div className='cs-product-detail'>
+              <div className='p-3'>
+                <h2 className='cs-content-header p-3 fs-5 fw-normal'>CHI TIẾT SẢN PHẨM</h2>
+                <div className='mx-3 mt-4 mb-3'>
+                  <div className='d-flex mb-3'>
+                    <div className='cs-product-detail-title'>Danh mục</div>
+                    <div>1185</div>
+                  </div>
+                  <div className='d-flex mb-3'>
+                    <div className='cs-product-detail-title'>Danh mục</div>
+                    <div>1185</div>
+                  </div>
+                  <div className='d-flex mb-3'>
+                    <div className='cs-product-detail-title'>Danh mục</div>
+                    <div>1185</div>
                   </div>
                 </div>
               </div>
-              <div className='cs-product-rating-filter ms-3 d-flex flex-wrap'>
-                <div className='cs-product-rating-filter_item'>Tất cả</div>
-                <div className='cs-product-rating-filter_item'>5 Sao</div>
-                <div className='cs-product-rating-filter_item'>4 Sao</div>
-                <div className='cs-product-rating-filter_item'>3 Sao</div>
-                <div className='cs-product-rating-filter_item'>2 Sao</div>
-                <div className='cs-product-rating-filter_item'>1 Sao</div>
-                <div className='cs-product-rating-filter_item'>Có Bình Luận</div>
-                <div className='cs-product-rating-filter_item'>Có Hình Ảnh</div>
+              <div className='p-3'>
+                <h2 className='cs-content-header p-3 fs-5 fw-normal'>MÔ TẢ SẢN PHẨM</h2>
+                <div className='mx-3 mt-4 mb-3'>
+                  lllll
+                </div>
               </div>
+              <div></div>
             </div>
-            <div className='cs-product-rating-comment'>
-              <div className='cs-product-rating-comment_item'>
-                <section className="text-center text-lg-start shadow-1-strong rounded">
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="d-flex">
-                        <div className="me-4">
-                          <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/026.jpg"
-                            className="rounded-circle img-fluid shadow-1" alt="avatar" width="40" height="40" />
-                        </div>
-                        <div className="flex-grow-1">
-                          <p className="fs-normal lead mb-2"><strong>Anh</strong></p>
-                          <p className="text-muted fw-light mb-4">
-                            Ngon
-                          </p>
-                          <div className='d-flex'>
-                            <div className='cs-comment_item__image me-2 mb-2'>
-                              <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/026.jpg" width="72" height="72" />
+            <div className='cs-product-rating mt-3 p-4'>
+              <div className='cs-content-header p-3 fs-5 fw-normal mb-3'>ĐÁNH GIÁ SẢN PHẨM</div>
+              <div className='cs-product-rating-overview d-flex p-4 mb-3'>
+                <div className='cs-product-rating-score me-4'>
+                  <div className='cs-rating-score'>
+                    <span className='fs-3'>4.6 </span>
+                    <span className='gl-font-size-16'>trên 5</span>
+                  </div>
+                  <div className='cs-rating-star mt-2'>
+                    <div className='d-flex gl-font-size-20'>
+                      <FaRegStar className='gl-star'/>
+                      <FaRegStar className='gl-star'/>
+                      <FaStar className='gl-star'/>
+                      <FaStar className='gl-star'/>
+                      <FaStar className='gl-star'/>
+                    </div>
+                  </div>
+                </div>
+                <div className='cs-product-rating-filter ms-3 d-flex flex-wrap'>
+                  <div className='cs-product-rating-filter_item'>Tất cả</div>
+                  <div className='cs-product-rating-filter_item'>5 Sao</div>
+                  <div className='cs-product-rating-filter_item'>4 Sao</div>
+                  <div className='cs-product-rating-filter_item'>3 Sao</div>
+                  <div className='cs-product-rating-filter_item'>2 Sao</div>
+                  <div className='cs-product-rating-filter_item'>1 Sao</div>
+                  <div className='cs-product-rating-filter_item'>Có Bình Luận</div>
+                  <div className='cs-product-rating-filter_item'>Có Hình Ảnh</div>
+                </div>
+              </div>
+              <div className='cs-product-rating-comment'>
+                {listComment.map((data, indexCmt) => {
+                  return (
+                    <div className='cs-product-rating-comment-item' key={indexCmt}>
+                      <section className="text-center text-lg-start shadow-1-strong rounded">
+                        <div className="d-flex">
+                          <div className="me-4">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/026.jpg"
+                              className="rounded-circle shadow-1" alt="avatar" width="40" height="40" />
+                          </div>
+                          <div className="cs-comment-main flex-grow-1">
+                            <Link className='cs-comment-author-name'>giangng988</Link>
+                            <div className='d-flex mt-1'>
+                              <FaRegStar className='gl-star'/>
+                              <FaRegStar className='gl-star'/>
+                              <FaStar className='gl-star'/>
+                              <FaStar className='gl-star'/>
+                              <FaStar className='gl-star'/>
                             </div>
-                            <div className='cs-comment_item__image me-2 mb-2'>
-                              <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/026.jpg" width="72" height="72" />
+                            <div className='cs-comment-time gl-sub-color-text gl-font-size-12 mt-2 mb-3'>2024-08-22 13:52</div>
+                            <div className='cs-comment-content gl-font-size-14 my-3'>Bàn phím cơ gaming không dây AULA F75 Reaper Switch là một lựa chọn tuyệt vời cho các game thủ muốn kết hợp giữa hiệu suất và tính thẩm mỹ. Sản phẩm này nổi bật với thiết kế ấn tượng, các tính năng vượt trội, và khả năng kết nối linh hoạt, đáp ứng mọi nhu cầu của người dùng.</div>
+                            <div className='cs-comment-img'>
+                              <div className='cs-comment-img-video'>
+                                {commentImg.map((data, index) => {
+                                  return (
+                                    <div className='cs-img-video-item col-1 me-1' key={index}>
+                                      <img className='cs-comment-item-img' src={data} alt="" onClick={() => handleImgZoom(data, indexCmt)}/>
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                              {indexCmtST === indexCmt && isZoomImg != '' &&
+                                (<div className='cs-zoom-block col-4 p-0 mt-2'>
+                                  <div className='cs-img-zoom w-100'>
+                                    <img className='w-100 h-100' src={commentImgZoom} alt="" />
+                                  </div>
+                                  <div className='cs-zoom-control-btn top-50 start-0' onClick={handlePrevImgZoom}>
+                                    <FaChevronLeft className='cs-control-img-zoom-icon'/>
+                                    <span className="visually-hidden">Previous</span>
+                                  </div>
+                                  <div className='cs-zoom-control-btn top-50 end-0' onClick={handleNextImgZoom}>
+                                    <FaChevronRight className='cs-control-img-zoom-icon'/>
+                                    <span className="visually-hidden">Next</span>
+                                  </div>
+                                </div>)
+                              }
+                            </div>
+                            <div className='cs-comment-shop-reply mt-2'>
+                              <div className='cs-shop-reply-header'>phản hồi của Người Bán</div>
+                              <div className='cs-shop-reply-main'>Cảm ơn bạn đã ủng hộ shop !</div>
+                            </div>
+                            <div className='cs-comment-actions gl-sub-color-text d-flex justify-content-between mt-3'>
+                              <div className='cs-action-like d-flex'>
+                                <div className='cs-action-like-icon me-1'><BiSolidLike /></div>
+                                <div className='cs-action-like-count'>12</div>
+                              </div>
+                              <div className='cs-action-report dropdown'>
+                                <BsThreeDotsVertical data-bs-toggle="dropdown" key={indexCmt}/>
+                                <div className='dropdown-menu cs-report-comment px-3' data-bs-toggle="modal" data-bs-target="#reportModal" tabIndex="-1">Báo cáo</div>
+                              </div>
                             </div>
                           </div>
                         </div>
+                      </section>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+            <div className='cs-recommendation mt-4'>
+              <div className='cs-recommendation-header'>
+                <span>CÁC SẢN PHẨM KHÁC CỦA SHOP</span>
+              </div>
+              <div className='d-flex'>
+                <div className='p-1'>Component</div>
+              </div>
+            </div>
+            {/* <div className='cs-recommendation mt-4'>
+              <div className='cs-recommendation-header'>
+                <span>CÓ THỂ BẠN CŨNG THÍCH</span>
+              </div>
+              <div className='d-flex'>
+                <div className='p-1'>Component</div>
+              </div>
+            </div> */}
+          </div>
+          <div className='right-content col-2 p-0'>
+            <div className='cs-product-hot-sales'>
+              <h2 className='cs-right-content-header'>Top sản phẩm nổi bật</h2>
+              {productsHotSale.map((data, index) => {
+                return (
+                  <div className='cs-product-hot-sales-item' key={index}>
+                    <div className='cs-item-card'>
+                      <img className='cs-item-card-img' src='https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljdypb0bv4k2e8@resize_w192_nl.webp'/>
+                      <div className='cs-item-card-body'>
+                        <div className='cs-item-card-name'>Áo sơ mi nam Basic chất kaki cao cấp cực đẹp</div>
+                        <div className='cs-item-card-price'><span>₫</span>99.000</div>
                       </div>
                     </div>
                   </div>
-                </section>
-              </div>
+                )
+              })}
             </div>
           </div>
-          <div className='cs-recommendation mt-4'>
-            <div className='cs-recommendation-header'>
-              <span>CÁC SẢN PHẨM KHÁC CỦA SHOP</span>
-            </div>
-            <div className='d-flex'>
-              <div className='p-1'>Component</div>
-            </div>
-          </div>
-          {/* <div className='cs-recommendation mt-4'>
-            <div className='cs-recommendation-header'>
-              <span>CÓ THỂ BẠN CŨNG THÍCH</span>
-            </div>
-            <div className='d-flex'>
-              <div className='p-1'>Component</div>
-            </div>
-          </div> */}
         </div>
       </div>
-      <div className='module'>
-        <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-lg">
+      {/* modal */}
+      <div>
+        {/* modal show image product */}
+        <div className="modal fade" id="imgProductModal" tabIndex={-1} aria-labelledby="imgProductModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered modal-lg">
             <div className="modal-content">
               <div className="modal-body p-0">
                 <div className='d-flex'>
                   <div className='cs-modal-left'>
                     <div className='position-relative'>
                       <div className='cs-modal-left-img'>
-                        <img className='cs-modal-img' src={imageModule} alt="image-product" />
+                        <img className='cs-modal-img' src='https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp' alt="image-product" />
                       </div>
                       <div className='cs-modal-list-image-button start-0 top-50' onClick={handleClickListImageModalBack}><FaChevronLeft /></div>
                       <div className='cs-modal-list-image-button top-50 end-0' onClick={handleClickListImageModalFront}><FaChevronRight /></div>
@@ -348,12 +491,81 @@ const Product = () => {
                       {imgDetail.map((data, index) => {
                         return (
                           <div className='cs-modal-img-block btn-primary' key={index} onClick={() => handleClickImageModule(index)}>
-                            <img className='cs-modal-img-item' src={data} />
+                            <img className='cs-modal-img-item' src='https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp' />
                           </div>)
                       })}
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* modal report comment */}
+        <div className="modal" id="reportModal" data-bs-backdrop="static" tabIndex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="header pt-4 px-4">
+                <h5 className="modal-title gl-font-size-20" id="exampleModalLabel">Báo cáo đánh giá này</h5>
+              </div>
+              <div className="modal-body p-4">
+                <div className='mb-4 gl-font-size-16'>Vui lòng chọn lý do báo cáo</div>
+                <div className='block-check'>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioCheck1" onChange={handleRadioChange} checked={isCheckedReport === 'radioCheck1'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault1">
+                      Đánh giá thô tục phản cảm
+                    </label>
+                  </div>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioReport2" onChange={handleRadioChange} checked={isCheckedReport === 'radioReport2'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault2">
+                      Chứa hình ảnh phản cảm, khỏa thân, khiêu dâm
+                    </label>
+                  </div>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioReport3" onChange={handleRadioChange} checked={isCheckedReport === 'radioReport3'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault3">
+                      Đánh giá trùng lặp (thông tin rác)
+                    </label>
+                  </div>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioReport4" onChange={handleRadioChange} checked={isCheckedReport === 'radioReport4'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault2">
+                      Chứa thông tin cá nhân
+                    </label>
+                  </div>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioReport5" onChange={handleRadioChange} checked={isCheckedReport === 'radioReport5'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault1">
+                      Quảng cáo trái phép
+                    </label>
+                  </div>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioReport6" onChange={handleRadioChange} checked={isCheckedReport === 'radioReport6'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault2">
+                      Đánh giá không chính xác / gây hiểu lầm (ví dụ như: đánh giá và sản phẩm không khớp, ...)
+                    </label>
+                  </div>
+                  <div className="form-check py-3">
+                    <input className="form-check-input cs-check-input-report" type="radio" id="radioOtherReport" onChange={handleRadioChange} checked={isCheckedReport === 'radioOtherReport'}/>
+                    <label className="form-check-label gl-font-size-16" htmlFor="flexRadioDefault1">
+                      Vi phạm khác
+                    </label>
+                  </div>
+                  {isCheckedReport === 'radioOtherReport' && (<div className="">
+                    <input className='cs-inputReport' type="text" placeholder="Vui lòng mô tả chi tiết vi phạm (bắt buộc)" maxLength="300" value="" />
+                  </div>)}
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="cs-btn-modal-report btn" data-bs-dismiss="modal" onClick={() => setIsCheckedReport('')}>HỦY</button>
+                <button type="button"
+                  className={isCheckedReport != '' ? 'cs-btn-modal-report btn btn-primary' : 'cs-btn-modal-report btn btn-primary disable'}
+                  disabled={isCheckedReport === ''}
+                >
+                  GỬI
+                </button>
               </div>
             </div>
           </div>
