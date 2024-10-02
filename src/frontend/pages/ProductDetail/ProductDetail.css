@@ -1,4 +1,7 @@
-
+.active {
+    border: 2px solid var(--primary)!important;
+    color: var(--primary)!important;
+}
 .container {
     padding-bottom: 60px;
 }
@@ -24,6 +27,9 @@
 
 .cs-product-image {
     padding: 15px;
+}
+.cs-product-img-block {
+    cursor: pointer;
 }
 .cs-list-image-block {
     display: flex;
