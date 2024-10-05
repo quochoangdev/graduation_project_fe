@@ -9,18 +9,19 @@ import { BsCartPlus, BsThreeDotsVertical } from 'react-icons/bs'
 import { FiTruck } from 'react-icons/fi'
 import { IoIosChatboxes } from 'react-icons/io'
 import { BiSolidLike } from 'react-icons/bi'
+import ProductCard from '../component/ProductCard'
 
 let indexImgModule = 0
 
-const Product = () => {
+const ProductDetail = () => {
   const describeScroll = useRef()
   const imgDetail = [1, 2, 3, 4, 5, 6, 7]
   const imageList = imgDetail.slice(0, 5)
   const classify = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
   const productsHotSale = [1, 2, 3]
   const listComment = [1, 2, 3, 4]
-  const commentImg = ['https://down-vn.img.susercontent.com/file/450b418d5d2095e8a24a9c075d3229fe.webp', 'https://down-vn.img.susercontent.com/file/b3f363d0864a08af59ccc851e6d4876e.webp', 'https://down-vn.img.susercontent.com/file/041e3d5a798d127adc636c38d3cb79f7.webp']
-
+  const commentImg = ['https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lxwbzb1cel0b34.webp', 'https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lxwbzb1bz4yh42.webp', 'https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lxwbzb1bz4rfb5.webp']
+  const productShopRecomend = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
   const [quantityProduct, setQuantityProduct] = useState(1)
   const [imageModule, setImageModule] = useState(imgDetail[0] || '')
 
@@ -106,6 +107,8 @@ const Product = () => {
   }
   const handleNextImgZoom = () => {
   }
+  const handleScrollRecommendL = () => { describeScroll.current.scrollLeft -= 1100 }
+  const handleScrollRecommendR = () => { describeScroll.current.scrollLeft += 1100 }
   return (
     <div className='container'>
       <div className='cs-path-product d-flex align-items-center'>
@@ -122,14 +125,14 @@ const Product = () => {
           <div className='col-4'>
             <div className='cs-product-image'>
               <div className='position-relative'>
-                <img className='cs-product-img-block h-100 w-100' data-bs-toggle="modal" data-bs-target="#imgProductModal" src={'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp'} alt='image'/>
+                <img className='cs-product-img-block h-100 w-100' data-bs-toggle="modal" data-bs-target="#imgProductModal" src={'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp'} alt='image'/>
               </div>
               <div className='cs-list-image position-relative my-1'>
-                <div className='cs-list-image-block' ref={describeScroll}>
+                <div className='cs-list-image-block'>
                   {imageList.map((data, index) => {
                     return (
                       <div className='cs-list-img-block-item d-block' key={index} data-bs-toggle="modal" data-bs-target="#imgProductModal" onClick={() => handleClickShowImgModule(data)}>
-                        <img className='cs-image-item' src={'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp'} />
+                        <img className='cs-image-item' src={'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp'} />
                       </div>
                     )
                   })}
@@ -443,25 +446,61 @@ const Product = () => {
                     </div>
                   )
                 })}
+                <div className='cs-pagination-comment'>
+                  <nav aria-label="Page navigation example">
+                    <ul className='pagination'>
+                      <li className='page-item'>
+                        <a className='page-link' href="#" aria-label="Previous">
+                          <FaChevronLeft className='sr-only' />
+                        </a>
+                      </li>
+                      <li className='page-item'><a className='page-link' href="#">1</a></li>
+                      <li className='page-item'><a className='page-link' href="#">2</a></li>
+                      <li className='page-item'><a className='page-link' href="#">3</a></li>
+                      <li className='page-item'>
+                        <a className='page-link' href="#" aria-label="Next">
+                          <FaChevronRight className='sr-only' />
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
             {/* Other products of the shop */}
-            <div className='cs-recommendation mt-4'>
-              <div className='cs-recommendation-header'>
+            <div className='cs-recommend mt-4'>
+              <div className='cs-recommend-header'>
                 <span>CÁC SẢN PHẨM KHÁC CỦA SHOP</span>
               </div>
-              <div className='d-flex'>
-                <div className='p-1'>Component</div>
+              <div className='cs-recommend-content'>
+                <div className='cs-recommend-list d-flex' ref={describeScroll}>
+                  {productShopRecomend.map((data, index) => {
+                    return (
+                      <div className='p-1 col-2' key={index}>
+                        <ProductCard />
+                      </div>)
+                  })}
+                </div>
+                <FaChevronLeft className='cs-recommend-scroll-btn top-50 start-0' onClick={handleScrollRecommendL}/>
+                <FaChevronRight className='cs-recommend-scroll-btn top-50 end-0' onClick={handleScrollRecommendR}/>
               </div>
             </div>
-            {/* <div className='cs-recommendation mt-4'>
-              <div className='cs-recommendation-header'>
+            <div className='cs-recommend mt-4'>
+              <div className='cs-recommend-header'>
                 <span>CÓ THỂ BẠN CŨNG THÍCH</span>
               </div>
-              <div className='d-flex'>
-                <div className='p-1'>Component</div>
+              <div className='d-flex flex flex-wrap'>
+                {productShopRecomend.map((data, index) => {
+                  return (
+                    <div className='p-1 col-2' key={index}>
+                      <ProductCard />
+                    </div>)
+                })}
               </div>
-            </div> */}
+              <div className='d-flex align-items-center justify-content-center'>
+                <Link><button className='cs-see-more'>Xem thêm</button></Link>
+              </div>
+            </div>
           </div>
           {/*right: hot product of the shop*/}
           <div className='right-content col-2 p-0'>
@@ -495,7 +534,7 @@ const Product = () => {
                   <div className='cs-modal-left'>
                     <div className='position-relative'>
                       <div className='cs-modal-left-img'>
-                        <img className='cs-modal-img' src='https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp' alt="image-product" />
+                        <img className='cs-modal-img' src='https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp' alt="image-product" />
                       </div>
                       <div className='cs-modal-list-image-button start-0 top-50' onClick={handleClickListImageModalPrev}><FaChevronLeft /></div>
                       <div className='cs-modal-list-image-button top-50 end-0' onClick={handleClickListImageModalNext}><FaChevronRight /></div>
@@ -507,7 +546,7 @@ const Product = () => {
                       {imgDetail.map((data, index) => {
                         return (
                           <div className={indexImageProductModule === index ? 'cs-modal-img-block active' : 'cs-modal-img-block'} key={index} onClick={() => handleClickImageModule(index)}>
-                            <img className='cs-modal-img-item' src='https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp' />
+                            <img className='cs-modal-img-item' src='https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp' />
                           </div>)
                       })}
                     </div>
@@ -591,4 +630,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default ProductDetail
