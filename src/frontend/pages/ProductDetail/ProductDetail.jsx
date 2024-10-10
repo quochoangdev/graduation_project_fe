@@ -9,29 +9,31 @@ import { BsCartPlus, BsThreeDotsVertical } from 'react-icons/bs'
 import { FiTruck } from 'react-icons/fi'
 import { IoIosChatboxes } from 'react-icons/io'
 import { BiSolidLike } from 'react-icons/bi'
+import ProductCard from '../component/ProductCard'
 
 let indexImgModule = 0
 
-const Product = () => {
-  const handleCheck = () => {
-    alert('hello')
-  }
-
+const ProductDetail = () => {
   const describeScroll = useRef()
   const imgDetail = [1, 2, 3, 4, 5, 6, 7]
   const imageList = imgDetail.slice(0, 5)
   const classify = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
   const productsHotSale = [1, 2, 3]
   const listComment = [1, 2, 3, 4]
-  const commentImg = ['https://down-vn.img.susercontent.com/file/450b418d5d2095e8a24a9c075d3229fe.webp', 'https://down-vn.img.susercontent.com/file/b3f363d0864a08af59ccc851e6d4876e.webp', 'https://down-vn.img.susercontent.com/file/041e3d5a798d127adc636c38d3cb79f7.webp']
-
+  const commentImg = ['https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lxwbzb1cel0b34.webp', 'https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lxwbzb1bz4yh42.webp', 'https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lxwbzb1bz4rfb5.webp']
+  const productShopRecomend = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
   const [quantityProduct, setQuantityProduct] = useState(1)
   const [imageModule, setImageModule] = useState(imgDetail[0] || '')
 
   const [isCheckedReport, setIsCheckedReport] = useState('')
   const [commentImgZoom, setCommentImgZoom] = useState('')
   const [isZoomImg, setIsZoomImg] = useState(false)
-  const [indexCmtST, setIndexCmtST] = useState()
+  const [indexCmtHook, setIndexCmtHook] = useState()
+  const [indexImageProductModule, setIndexImageProductModule] = useState(0)
+  const [indexSelectTypeProduct1, setIndexSelectTypeProduct1] = useState()
+  const [indexSelectTypeProduct2, setIndexSelectTypeProduct2] = useState()
+  const [idFilterComment, setIdFilterComment] = useState('')
+  const [indexImgItemHook, setIndexImgItemHook] = useState()
 
   const handleClickListImageLeft = () => {
   }
@@ -47,7 +49,7 @@ const Product = () => {
     return
   }
 
-  const handleClickListImageModalBack = () => {
+  const handleClickListImageModalPrev = () => {
     if (indexImgModule == 0) {
       indexImgModule = imgDetail.length - 1
       setImageModule(imgDetail[indexImgModule])
@@ -56,8 +58,7 @@ const Product = () => {
       setImageModule(imgDetail[indexImgModule])
     }
   }
-
-  const handleClickListImageModalFront = () => {
+  const handleClickListImageModalNext = () => {
     if (indexImgModule == imgDetail.length - 1) {
       indexImgModule = 0
       setImageModule(imgDetail[indexImgModule])
@@ -68,6 +69,7 @@ const Product = () => {
   }
 
   const handleClickImageModule = (index) => {
+    setIndexImageProductModule(index)
     setImageModule(imgDetail[index])
   }
 
@@ -75,19 +77,28 @@ const Product = () => {
     const foundImage = imgDetail.find((element) => element == `${data}`)
     setImageModule(foundImage)
   }
+  const handleSelectType1 = (index) => {
+    setIndexSelectTypeProduct1(index)
+  }
+  const handleSelectType2 = (index) => {
+    setIndexSelectTypeProduct2(index)
+  }
 
+  const handleFilterCmt = (event) => {
+    setIdFilterComment(event.target.id)
+  }
   const handleRadioChange = (event) => {
     // Kiểm tra nếu radio này được chọn
     setIsCheckedReport(event.target.id)
   }
-  const handleImgZoom = (src, indexCmt) => {
-    console.log(indexCmtST)
+  const handleImgCmt = (src, indexCmt, indexImgItem) => {
+    setIndexImgItemHook(indexImgItem)
     if (commentImgZoom === src) {
       setCommentImgZoom('')
       setIsZoomImg(false)
     }
     else {
-      setIndexCmtST(indexCmt)
+      setIndexCmtHook(indexCmt)
       setIsZoomImg(true)
       setCommentImgZoom(src)
     }
@@ -96,6 +107,8 @@ const Product = () => {
   }
   const handleNextImgZoom = () => {
   }
+  const handleScrollRecommendL = () => { describeScroll.current.scrollLeft -= 1100 }
+  const handleScrollRecommendR = () => { describeScroll.current.scrollLeft += 1100 }
   return (
     <div className='container'>
       <div className='cs-path-product d-flex align-items-center'>
@@ -112,14 +125,14 @@ const Product = () => {
           <div className='col-4'>
             <div className='cs-product-image'>
               <div className='position-relative'>
-                <img className='h-100 w-100' src={'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp'} alt='image'/>
+                <img className='cs-product-img-block h-100 w-100' data-bs-toggle="modal" data-bs-target="#imgProductModal" src={'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp'} alt='image'/>
               </div>
               <div className='cs-list-image position-relative my-1'>
-                <div className='cs-list-image-block' ref={describeScroll}>
+                <div className='cs-list-image-block'>
                   {imageList.map((data, index) => {
                     return (
                       <div className='cs-list-img-block-item d-block' key={index} data-bs-toggle="modal" data-bs-target="#imgProductModal" onClick={() => handleClickShowImgModule(data)}>
-                        <img className='cs-image-item' src={'https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp'} />
+                        <img className='cs-image-item' src={'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp'} />
                       </div>
                     )
                   })}
@@ -210,7 +223,7 @@ const Product = () => {
                         {classify.map((data, index) => {
                           return (
                             <div className='cs-option-value-item' key={index}>
-                              <button className='cs-option-value-item-btn'>Xanh Nhạt T1</button>
+                              <button className={indexSelectTypeProduct1 === index ? 'active cs-option-value-item-btn' : 'cs-option-value-item-btn'} onClick={() => handleSelectType1(index)}>Xanh Nhạt T1</button>
                             </div>
                           )
                         })}
@@ -224,7 +237,7 @@ const Product = () => {
                         {classify.map((data, index) => {
                           return (
                             <div className='cs-option-value-item' key={index}>
-                              <button className='cs-option-value-item-btn'>26</button>
+                              <button className={indexSelectTypeProduct2 === index ? 'active cs-option-value-item-btn' : 'cs-option-value-item-btn'} onClick={() => handleSelectType2(index)}>26</button>
                             </div>
                           )
                         })}
@@ -305,6 +318,7 @@ const Product = () => {
             </div>
           </div>
         </div>
+        {/* Product detail */}
         <div className='cs-product-content p-0 m-0 row'>
           <div className='left-content col-10 p-0'>
             <div className='cs-product-detail'>
@@ -333,9 +347,11 @@ const Product = () => {
               </div>
               <div></div>
             </div>
+            {/* product reviews */}
             <div className='cs-product-rating mt-3 p-4'>
               <div className='cs-content-header p-3 fs-5 fw-normal mb-3'>ĐÁNH GIÁ SẢN PHẨM</div>
               <div className='cs-product-rating-overview d-flex p-4 mb-3'>
+                {/* product rating star */}
                 <div className='cs-product-rating-score me-4'>
                   <div className='cs-rating-score'>
                     <span className='fs-3'>4.6 </span>
@@ -351,15 +367,16 @@ const Product = () => {
                     </div>
                   </div>
                 </div>
+                {/* Product review filter */}
                 <div className='cs-product-rating-filter ms-3 d-flex flex-wrap'>
-                  <div className='cs-product-rating-filter_item'>Tất cả</div>
-                  <div className='cs-product-rating-filter_item'>5 Sao</div>
-                  <div className='cs-product-rating-filter_item'>4 Sao</div>
-                  <div className='cs-product-rating-filter_item'>3 Sao</div>
-                  <div className='cs-product-rating-filter_item'>2 Sao</div>
-                  <div className='cs-product-rating-filter_item'>1 Sao</div>
-                  <div className='cs-product-rating-filter_item'>Có Bình Luận</div>
-                  <div className='cs-product-rating-filter_item'>Có Hình Ảnh</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'allCmt' ? 'active' : ''}`} id='allCmt' onClick={handleFilterCmt}>Tất cả</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'fiveStar' ? 'active' : ''}`} id='fiveStar' onClick={handleFilterCmt}>5 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'fourStar' ? 'active' : ''}`} id='fourStar' onClick={handleFilterCmt}>4 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'threeStart' ? 'active' : ''}`} id='threeStart' onClick={handleFilterCmt}>3 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'twoStar' ? 'active' : ''}`} id='twoStar' onClick={handleFilterCmt}>2 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'oneStar' ? 'active' : ''}`} id='oneStar' onClick={handleFilterCmt}>1 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'isText' ? 'active' : ''}`} id='isText' onClick={handleFilterCmt}>Có Bình Luận</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'isImgVideo' ? 'active' : ''}`} id='isImgVideo' onClick={handleFilterCmt}>Có Hình Ảnh</div>
                 </div>
               </div>
               <div className='cs-product-rating-comment'>
@@ -385,15 +402,15 @@ const Product = () => {
                             <div className='cs-comment-content gl-font-size-14 my-3'>Bàn phím cơ gaming không dây AULA F75 Reaper Switch là một lựa chọn tuyệt vời cho các game thủ muốn kết hợp giữa hiệu suất và tính thẩm mỹ. Sản phẩm này nổi bật với thiết kế ấn tượng, các tính năng vượt trội, và khả năng kết nối linh hoạt, đáp ứng mọi nhu cầu của người dùng.</div>
                             <div className='cs-comment-img'>
                               <div className='cs-comment-img-video'>
-                                {commentImg.map((data, index) => {
+                                {commentImg.map((data, indexImgItem) => {
                                   return (
-                                    <div className='cs-img-video-item col-1 me-1' key={index}>
-                                      <img className='cs-comment-item-img' src={data} alt="" onClick={() => handleImgZoom(data, indexCmt)}/>
+                                    <div className='cs-img-video-item col-1 me-1' key={indexImgItem}>
+                                      <img className={`cs-comment-item-img ${indexImgItemHook === indexImgItem && indexCmtHook === indexCmt ? 'active' : ''}`} src={data} alt="" onClick={() => handleImgCmt(data, indexCmt, indexImgItem)}/>
                                     </div>
                                   )
                                 })}
                               </div>
-                              {indexCmtST === indexCmt && isZoomImg != '' &&
+                              {indexCmtHook === indexCmt && isZoomImg != '' &&
                                 (<div className='cs-zoom-block col-4 p-0 mt-2'>
                                   <div className='cs-img-zoom w-100'>
                                     <img className='w-100 h-100' src={commentImgZoom} alt="" />
@@ -429,25 +446,63 @@ const Product = () => {
                     </div>
                   )
                 })}
+                <div className='cs-pagination-comment'>
+                  <nav aria-label="Page navigation example">
+                    <ul className='pagination'>
+                      <li className='page-item'>
+                        <a className='page-link' href="#" aria-label="Previous">
+                          <FaChevronLeft className='sr-only' />
+                        </a>
+                      </li>
+                      <li className='page-item'><a className='page-link' href="#">1</a></li>
+                      <li className='page-item'><a className='page-link' href="#">2</a></li>
+                      <li className='page-item'><a className='page-link' href="#">3</a></li>
+                      <li className='page-item'>
+                        <a className='page-link' href="#" aria-label="Next">
+                          <FaChevronRight className='sr-only' />
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
-            <div className='cs-recommendation mt-4'>
-              <div className='cs-recommendation-header'>
+            {/* Other products of the shop */}
+            <div className='cs-recommend mt-4'>
+              <div className='cs-recommend-header'>
                 <span>CÁC SẢN PHẨM KHÁC CỦA SHOP</span>
               </div>
-              <div className='d-flex'>
-                <div className='p-1'>Component</div>
+              <div className='cs-recommend-content'>
+                <div className='cs-recommend-list d-flex' ref={describeScroll}>
+                  {productShopRecomend.map((data, index) => {
+                    return (
+                      <div className='p-1 col-2' key={index}>
+                        <ProductCard />
+                      </div>)
+                  })}
+                </div>
+                <FaChevronLeft className='cs-recommend-scroll-btn top-50 start-0' onClick={handleScrollRecommendL}/>
+                <FaChevronRight className='cs-recommend-scroll-btn top-50 end-0' onClick={handleScrollRecommendR}/>
               </div>
             </div>
-            {/* <div className='cs-recommendation mt-4'>
-              <div className='cs-recommendation-header'>
+            <div className='cs-recommend mt-4'>
+              <div className='cs-recommend-header'>
                 <span>CÓ THỂ BẠN CŨNG THÍCH</span>
               </div>
-              <div className='d-flex'>
-                <div className='p-1'>Component</div>
+              <div className='d-flex flex flex-wrap'>
+                {productShopRecomend.map((data, index) => {
+                  return (
+                    <div className='p-1 col-2' key={index}>
+                      <ProductCard />
+                    </div>)
+                })}
               </div>
-            </div> */}
+              <div className='d-flex align-items-center justify-content-center'>
+                <Link><button className='cs-see-more'>Xem thêm</button></Link>
+              </div>
+            </div>
           </div>
+          {/*right: hot product of the shop*/}
           <div className='right-content col-2 p-0'>
             <div className='cs-product-hot-sales'>
               <h2 className='cs-right-content-header'>Top sản phẩm nổi bật</h2>
@@ -479,10 +534,10 @@ const Product = () => {
                   <div className='cs-modal-left'>
                     <div className='position-relative'>
                       <div className='cs-modal-left-img'>
-                        <img className='cs-modal-img' src='https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp' alt="image-product" />
+                        <img className='cs-modal-img' src='https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp' alt="image-product" />
                       </div>
-                      <div className='cs-modal-list-image-button start-0 top-50' onClick={handleClickListImageModalBack}><FaChevronLeft /></div>
-                      <div className='cs-modal-list-image-button top-50 end-0' onClick={handleClickListImageModalFront}><FaChevronRight /></div>
+                      <div className='cs-modal-list-image-button start-0 top-50' onClick={handleClickListImageModalPrev}><FaChevronLeft /></div>
+                      <div className='cs-modal-list-image-button top-50 end-0' onClick={handleClickListImageModalNext}><FaChevronRight /></div>
                     </div>
                   </div>
                   <div className='cs-modal-right'>
@@ -490,8 +545,8 @@ const Product = () => {
                     <div className='cs-modal-list-img'>
                       {imgDetail.map((data, index) => {
                         return (
-                          <div className='cs-modal-img-block btn-primary' key={index} onClick={() => handleClickImageModule(index)}>
-                            <img className='cs-modal-img-item' src='https://down-vn.img.susercontent.com/file/6b0f505aa227f73d5be77e545c48f22d@resize_w450_nl.webp' />
+                          <div className={indexImageProductModule === index ? 'cs-modal-img-block active' : 'cs-modal-img-block'} key={index} onClick={() => handleClickImageModule(index)}>
+                            <img className='cs-modal-img-item' src='https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp' />
                           </div>)
                       })}
                     </div>
@@ -575,4 +630,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default ProductDetail

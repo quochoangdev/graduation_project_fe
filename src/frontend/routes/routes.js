@@ -24,12 +24,12 @@ const frontendRoutes = [
     component: Home,
     layout: DefaultLayout
   },
-    {
+  {
     path: config.routes.productDetail,
     component: ProductDetail,
     layout: DefaultLayout
   },
-    {
+  {
     path: config.routes.allCategories,
     component: AllCategories,
     layout: DefaultLayout
