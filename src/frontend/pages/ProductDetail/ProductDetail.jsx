@@ -223,7 +223,7 @@ const ProductDetail = () => {
                         {classify.map((data, index) => {
                           return (
                             <div className='cs-option-value-item' key={index}>
-                              <button className={indexSelectTypeProduct1 === index ? 'active cs-option-value-item-btn' : 'cs-option-value-item-btn'} onClick={() => handleSelectType1(index)}>Xanh Nhạt T1</button>
+                              <button className={indexSelectTypeProduct1 === index ? 'activeProduct cs-option-value-item-btn' : 'cs-option-value-item-btn'} onClick={() => handleSelectType1(index)}>Xanh Nhạt T1</button>
                             </div>
                           )
                         })}
@@ -237,7 +237,7 @@ const ProductDetail = () => {
                         {classify.map((data, index) => {
                           return (
                             <div className='cs-option-value-item' key={index}>
-                              <button className={indexSelectTypeProduct2 === index ? 'active cs-option-value-item-btn' : 'cs-option-value-item-btn'} onClick={() => handleSelectType2(index)}>26</button>
+                              <button className={indexSelectTypeProduct2 === index ? 'activeProduct cs-option-value-item-btn' : 'cs-option-value-item-btn'} onClick={() => handleSelectType2(index)}>26</button>
                             </div>
                           )
                         })}
@@ -369,14 +369,14 @@ const ProductDetail = () => {
                 </div>
                 {/* Product review filter */}
                 <div className='cs-product-rating-filter ms-3 d-flex flex-wrap'>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'allCmt' ? 'active' : ''}`} id='allCmt' onClick={handleFilterCmt}>Tất cả</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'fiveStar' ? 'active' : ''}`} id='fiveStar' onClick={handleFilterCmt}>5 Sao</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'fourStar' ? 'active' : ''}`} id='fourStar' onClick={handleFilterCmt}>4 Sao</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'threeStart' ? 'active' : ''}`} id='threeStart' onClick={handleFilterCmt}>3 Sao</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'twoStar' ? 'active' : ''}`} id='twoStar' onClick={handleFilterCmt}>2 Sao</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'oneStar' ? 'active' : ''}`} id='oneStar' onClick={handleFilterCmt}>1 Sao</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'isText' ? 'active' : ''}`} id='isText' onClick={handleFilterCmt}>Có Bình Luận</div>
-                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'isImgVideo' ? 'active' : ''}`} id='isImgVideo' onClick={handleFilterCmt}>Có Hình Ảnh</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'allCmt' ? 'activeProduct' : ''}`} id='allCmt' onClick={handleFilterCmt}>Tất cả</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'fiveStar' ? 'activeProduct' : ''}`} id='fiveStar' onClick={handleFilterCmt}>5 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'fourStar' ? 'activeProduct' : ''}`} id='fourStar' onClick={handleFilterCmt}>4 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'threeStart' ? 'activeProduct' : ''}`} id='threeStart' onClick={handleFilterCmt}>3 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'twoStar' ? 'activeProduct' : ''}`} id='twoStar' onClick={handleFilterCmt}>2 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'oneStar' ? 'activeProduct' : ''}`} id='oneStar' onClick={handleFilterCmt}>1 Sao</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'isText' ? 'activeProduct' : ''}`} id='isText' onClick={handleFilterCmt}>Có Bình Luận</div>
+                  <div className={`cs-product-rating-filter_item ${idFilterComment === 'isImgVideo' ? 'activeProduct' : ''}`} id='isImgVideo' onClick={handleFilterCmt}>Có Hình Ảnh</div>
                 </div>
               </div>
               <div className='cs-product-rating-comment'>
@@ -405,7 +405,7 @@ const ProductDetail = () => {
                                 {commentImg.map((data, indexImgItem) => {
                                   return (
                                     <div className='cs-img-video-item col-1 me-1' key={indexImgItem}>
-                                      <img className={`cs-comment-item-img ${indexImgItemHook === indexImgItem && indexCmtHook === indexCmt ? 'active' : ''}`} src={data} alt="" onClick={() => handleImgCmt(data, indexCmt, indexImgItem)}/>
+                                      <img className={`cs-comment-item-img ${indexImgItemHook === indexImgItem && indexCmtHook === indexCmt ? 'activeProduct' : ''}`} src={data} alt="" onClick={() => handleImgCmt(data, indexCmt, indexImgItem)}/>
                                     </div>
                                   )
                                 })}
@@ -545,7 +545,7 @@ const ProductDetail = () => {
                     <div className='cs-modal-list-img'>
                       {imgDetail.map((data, index) => {
                         return (
-                          <div className={indexImageProductModule === index ? 'cs-modal-img-block active' : 'cs-modal-img-block'} key={index} onClick={() => handleClickImageModule(index)}>
+                          <div className={indexImageProductModule === index ? 'cs-modal-img-block activeProduct' : 'cs-modal-img-block'} key={index} onClick={() => handleClickImageModule(index)}>
                             <img className='cs-modal-img-item' src='https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpdn4wv4disb21_tn.webp' />
                           </div>)
                       })}

@@ -1,0 +1,195 @@
+.cs-home-baner {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    border-radius: .125rem;
+}
+.cs-banner-left {
+    border-radius: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+.carousel-inner {
+    border-radius: .125rem;
+}
+
+.cs-home-carousel-control-next,
+.cs-home-carousel-control-prev {
+    position: absolute;
+    width: 35px;
+    height: 60px;
+    border-radius: initial;
+    background-color: rgba(0,0,0,.18);
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .09);
+    cursor: pointer;
+    transition: opacity .3s ease;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.cs-home-carousel-control-next,
+.cs-home-carousel-control-prev {
+    display: none;
+}
+.cs-home-carousel-control-next:hover,
+.cs-home-carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, .32);
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .09);
+}
+.cs-banner-left:hover .cs-home-carousel-control-next,
+.cs-banner-left:hover .cs-home-carousel-control-prev {
+    display: inline-flex;
+}
+.cs-home-carousel-control-icon {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+.cs-banner-right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.cs-banner-right-link {
+    border-radius: .125rem;
+}
+.cs-banner-right-link-img {
+    border-radius: 2px;
+}
+.cs-discount-navbar {
+    min-height: 108px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 0;
+}
+.cs-discount-item {
+    text-decoration: none;
+}
+.cs-discount-item:hover {
+    transform: translateY(-.0625rem);
+}
+.cs-discount-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: relative;
+    margin: 18px auto 8px;
+}
+.cs-discount-img-inner {
+    background-image: url(https://cf.shopee.vn/file/vn-50009109-f6c34d719c3e4d33857371458e7a7059_xhdpi);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    transition: opacity .2s ease;
+}
+.cs-discount-title {
+    font-size: .8125rem;
+    max-width: 150px;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: #222;
+    letter-spacing: 0;
+    text-align: center;
+}
+.cs-home-category {
+    margin-top: 20px;
+    background-color: #fff;
+}
+.cs-home-category-title {
+    height: 3.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, .54);
+}
+.cs-home-categories-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.cs-home-categories-block {
+    height: auto;
+    width: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+.cs-home-categories-block::-webkit-scrollbar {
+    display: none;
+}
+.cs-home-categories-list {
+    height: 100%;
+    width: 140%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cs-home-categories-link {
+    height: 151px;
+    width: calc(1296px / 10);
+    text-decoration: none;
+    border-right: 1px solid rgba(0, 0, 0, .05);
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    text-align: center;
+    background-color: #fff;
+    transition: background-color 0.1s ease, transform 0.1s ease;
+}
+.cs-home-categories-link:hover {
+    transform: scale(1.05);
+    background-color: #fdfdfd;
+    border-color: rgba(0, 0, 0, .12);
+    border-width: 1px;
+    box-shadow: 0 0 .8125rem 0 rgba(0, 0, 0, .05);
+}
+.cs-home-categories-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cs-home-categories-img {
+    margin-top: 10%;
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+.cs-home-categories-name {
+    width: 90%;
+    color: rgba(0, 0, 0, .87);
+    text-decoration: none;
+    line-height: 1.25rem;
+    height: 3.125rem;
+    margin-bottom: .625rem;
+    text-align: center;
+}
+.cs-home-scroll-btn {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.54);;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: all .1s cubic-bezier(.4,0,.6,1);
+    transform: scale(0.9);
+}
+.cs-home-scroll-btn:hover {
+    transform: scale(1.3); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.cs-shopeemall {
+    margin-top: 20px;
+    background-color: #fff;
+}

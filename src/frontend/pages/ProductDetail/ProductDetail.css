@@ -1,4 +1,4 @@
-.active {
+.activeProduct {
     border: 2px solid var(--primary)!important;
     color: var(--primary)!important;
 }
